@@ -1075,3 +1075,40 @@ td {
     justify-content: flex-start;
   }
 }
+.timer-config-box {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.timer-config-box label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.timer-config-box select,
+.timer-config-box input {
+  min-width: 180px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.timer-help {
+  flex: 1;
+  min-width: 250px;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.4;
+  padding-bottom: 10px;
+}

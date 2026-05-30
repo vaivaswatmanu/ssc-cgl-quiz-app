@@ -8,18 +8,58 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
   const [jsonText, setJsonText] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const [timerOverrideType, setTimerOverrideType] = useState("json");
+  const [timerDurationMinutes, setTimerDurationMinutes] = useState(10);
+
   const isQuizMode = selectedMode === "quiz";
 
   function loadSample() {
     const sample = isQuizMode ? sampleQuiz : sampleMock;
     setJsonText(JSON.stringify(sample, null, 2));
     setErrors([]);
+
+    if (sample.timer?.durationMinutes) {
+      setTimerDurationMinutes(sample.timer.durationMinutes);
+    }
   }
 
   function handleModeChange(mode) {
     setSelectedMode(mode);
     setJsonText("");
     setErrors([]);
+    setTimerOverrideType("json");
+    setTimerDurationMinutes(mode === "quiz" ? 10 : 60);
+  }
+
+  function applyTimerOverride(testData) {
+    if (timerOverrideType === "json") {
+      return testData;
+    }
+
+    const updatedTestData = {
+      ...testData,
+      timer: {
+        type: timerOverrideType,
+        durationMinutes:
+          timerOverrideType === "none" ? 0 : Number(timerDurationMinutes),
+      },
+    };
+
+    return updatedTestData;
+  }
+
+  function validateTimerOverride() {
+    if (timerOverrideType === "json") return [];
+
+    if (timerOverrideType === "none") return [];
+
+    const duration = Number(timerDurationMinutes);
+
+    if (!duration || duration <= 0) {
+      return ["Timer duration must be greater than 0."];
+    }
+
+    return [];
   }
 
   function handleStart() {
@@ -40,8 +80,17 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
         return;
       }
 
+      const timerErrors = validateTimerOverride();
+
+      if (timerErrors.length > 0) {
+        setErrors(timerErrors);
+        return;
+      }
+
+      const finalTestData = applyTimerOverride(parsedData);
+
       setErrors([]);
-      onStartTest(parsedData);
+      onStartTest(finalTestData);
     } catch (error) {
       setErrors(["Invalid JSON format. Please check commas/brackets."]);
     }
@@ -53,9 +102,7 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
         <div className="header-row">
           <div>
             <h1>SSC Quiz App</h1>
-            <p className="muted">
-              Local CBT-style practice app for SSC CGL.
-            </p>
+            <p className="muted">Local CBT-style practice app for SSC CGL.</p>
           </div>
           <div className="badge">Local App</div>
         </div>
@@ -101,13 +148,49 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
           </div>
         </div>
 
+        <div className="timer-config-box">
+          <div>
+            <label>Timer Mode</label>
+            <select
+              value={timerOverrideType}
+              onChange={(e) => setTimerOverrideType(e.target.value)}
+            >
+              <option value="json">Use JSON timer</option>
+              <option value="none">No timer</option>
+              <option value="practice">Practice timer</option>
+              <option value="strict">Strict timer</option>
+            </select>
+          </div>
+
+          {timerOverrideType !== "json" && timerOverrideType !== "none" && (
+            <div>
+              <label>Duration Minutes</label>
+              <input
+                type="number"
+                min="0.1"
+                step="0.1"
+                value={timerDurationMinutes}
+                onChange={(e) => setTimerDurationMinutes(e.target.value)}
+              />
+            </div>
+          )}
+
+          <div className="timer-help">
+            {timerOverrideType === "json" &&
+              "Uses the timer settings already present inside pasted JSON."}
+            {timerOverrideType === "none" && "No timer will be shown during test."}
+            {timerOverrideType === "practice" &&
+              "Timer counts up. Good for practice and speed tracking."}
+            {timerOverrideType === "strict" &&
+              "Timer counts down and auto-submits when time ends."}
+          </div>
+        </div>
+
         <textarea
           value={jsonText}
           onChange={(e) => setJsonText(e.target.value)}
           placeholder={
-            isQuizMode
-              ? "Paste quiz JSON here..."
-              : "Paste mock JSON here..."
+            isQuizMode ? "Paste quiz JSON here..." : "Paste mock JSON here..."
           }
         />
 

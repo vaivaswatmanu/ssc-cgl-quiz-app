@@ -1,0 +1,83 @@
+{
+  "testId": "percentage-quiz-001",
+  "testName": "Percentage Practice Quiz 1",
+  "mode": "quiz",
+  "exam": "SSC CGL Tier 1",
+  "timer": {
+    "type": "practice",
+    "durationMinutes": 10
+  },
+  "marking": {
+    "correct": 2,
+    "wrong": -0.5,
+    "unattempted": 0
+  },
+  "sections": [
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": "A number is increased by 20% and then decreased by 20%. What is the net change?",
+          "options": [
+            { "id": "A", "text": "No change" },
+            { "id": "B", "text": "4% decrease" },
+            { "id": "C", "text": "4% increase" },
+            { "id": "D", "text": "2% decrease" }
+          ],
+          "correctOptionId": "B",
+          "solution": "Let the number be 100. After 20% increase = 120. After 20% decrease = 96. Net decrease = 4%."
+        },
+        {
+          "questionId": "q2",
+          "questionText": "If 35% of a number is 140, then what is 20% of the number?",
+          "options": [
+            { "id": "A", "text": "60" },
+            { "id": "B", "text": "70" },
+            { "id": "C", "text": "80" },
+            { "id": "D", "text": "90" }
+          ],
+          "correctOptionId": "C",
+          "solution": "35% = 140, so 100% = 140 × 100 / 35 = 400. Therefore, 20% = 80."
+        },
+        {
+          "questionId": "q3",
+          "questionText": "The price of an article is increased by 25%. By what percent should the new price be reduced to bring it back to the original price?",
+          "options": [
+            { "id": "A", "text": "20%" },
+            { "id": "B", "text": "25%" },
+            { "id": "C", "text": "30%" },
+            { "id": "D", "text": "33.33%" }
+          ],
+          "correctOptionId": "A",
+          "solution": "Let original price = 100. New price = 125. Required reduction = 25/125 × 100 = 20%."
+        },
+        {
+          "questionId": "q4",
+          "questionText": "A student scores 72 marks out of 90. What is his percentage?",
+          "options": [
+            { "id": "A", "text": "75%" },
+            { "id": "B", "text": "80%" },
+            { "id": "C", "text": "82%" },
+            { "id": "D", "text": "85%" }
+          ],
+          "correctOptionId": "B",
+          "solution": "Percentage = 72/90 × 100 = 80%."
+        },
+        {
+          "questionId": "q5",
+          "questionText": "If A's income is 25% more than B's income, then B's income is how much percent less than A's income?",
+          "options": [
+            { "id": "A", "text": "20%" },
+            { "id": "B", "text": "25%" },
+            { "id": "C", "text": "30%" },
+            { "id": "D", "text": "33.33%" }
+          ],
+          "correctOptionId": "A",
+          "solution": "Let B = 100. Then A = 125. B is less than A by 25. Percentage less = 25/125 × 100 = 20%."
+        }
+      ]
+    }
+  ]
+}

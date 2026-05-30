@@ -1,0 +1,137 @@
+{
+  "testId": "mini-mock-001",
+  "testName": "SSC CGL Mini Mock 1",
+  "mode": "mock",
+  "exam": "SSC CGL Tier 1",
+  "timer": {
+    "type": "practice",
+    "durationMinutes": 20
+  },
+  "marking": {
+    "correct": 2,
+    "wrong": -0.5,
+    "unattempted": 0
+  },
+  "sections": [
+    {
+      "sectionId": "reasoning",
+      "sectionName": "Reasoning",
+      "questions": [
+        {
+          "questionId": "r1",
+          "questionText": "Find the next number in the series: 3, 6, 12, 24, ?",
+          "options": [
+            { "id": "A", "text": "36" },
+            { "id": "B", "text": "42" },
+            { "id": "C", "text": "48" },
+            { "id": "D", "text": "54" }
+          ],
+          "correctOptionId": "C",
+          "solution": "Each term is multiplied by 2. So 24 × 2 = 48."
+        },
+        {
+          "questionId": "r2",
+          "questionText": "If CAT is coded as DBU, then DOG is coded as?",
+          "options": [
+            { "id": "A", "text": "EPH" },
+            { "id": "B", "text": "FQI" },
+            { "id": "C", "text": "CNG" },
+            { "id": "D", "text": "EOG" }
+          ],
+          "correctOptionId": "A",
+          "solution": "Each letter is shifted by +1. D→E, O→P, G→H."
+        }
+      ]
+    },
+    {
+      "sectionId": "ga",
+      "sectionName": "General Awareness",
+      "questions": [
+        {
+          "questionId": "g1",
+          "questionText": "Who is known as the Father of the Indian Constitution?",
+          "options": [
+            { "id": "A", "text": "Mahatma Gandhi" },
+            { "id": "B", "text": "B. R. Ambedkar" },
+            { "id": "C", "text": "Jawaharlal Nehru" },
+            { "id": "D", "text": "Sardar Patel" }
+          ],
+          "correctOptionId": "B",
+          "solution": "Dr. B. R. Ambedkar is known as the Father of the Indian Constitution."
+        },
+        {
+          "questionId": "g2",
+          "questionText": "The Battle of Plassey was fought in which year?",
+          "options": [
+            { "id": "A", "text": "1757" },
+            { "id": "B", "text": "1764" },
+            { "id": "C", "text": "1857" },
+            { "id": "D", "text": "1748" }
+          ],
+          "correctOptionId": "A",
+          "solution": "The Battle of Plassey was fought in 1757."
+        }
+      ]
+    },
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": "Find 25% of 360.",
+          "options": [
+            { "id": "A", "text": "60" },
+            { "id": "B", "text": "75" },
+            { "id": "C", "text": "80" },
+            { "id": "D", "text": "90" }
+          ],
+          "correctOptionId": "D",
+          "solution": "25% means one-fourth. 360/4 = 90."
+        },
+        {
+          "questionId": "q2",
+          "questionText": "If the ratio of A:B is 3:5 and B = 40, then A = ?",
+          "options": [
+            { "id": "A", "text": "20" },
+            { "id": "B", "text": "24" },
+            { "id": "C", "text": "30" },
+            { "id": "D", "text": "32" }
+          ],
+          "correctOptionId": "B",
+          "solution": "5 parts = 40, so 1 part = 8. A = 3 parts = 24."
+        }
+      ]
+    },
+    {
+      "sectionId": "english",
+      "sectionName": "English",
+      "questions": [
+        {
+          "questionId": "e1",
+          "questionText": "Choose the correctly spelt word.",
+          "options": [
+            { "id": "A", "text": "Accomodate" },
+            { "id": "B", "text": "Acommodate" },
+            { "id": "C", "text": "Accommodate" },
+            { "id": "D", "text": "Acomodate" }
+          ],
+          "correctOptionId": "C",
+          "solution": "The correct spelling is Accommodate."
+        },
+        {
+          "questionId": "e2",
+          "questionText": "Choose the synonym of 'Brief'.",
+          "options": [
+            { "id": "A", "text": "Short" },
+            { "id": "B", "text": "Large" },
+            { "id": "C", "text": "Heavy" },
+            { "id": "D", "text": "Slow" }
+          ],
+          "correctOptionId": "A",
+          "solution": "Brief means short or concise."
+        }
+      ]
+    }
+  ]
+}

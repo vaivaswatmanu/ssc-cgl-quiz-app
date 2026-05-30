@@ -1,0 +1,388 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+import QuestionView from "./QuestionView";
+import QuestionPalette from "./QuestionPalette";
+import Timer from "./Timer";
+
+function createInitialResponses(testData) {
+  const responses = {};
+
+  testData.sections.forEach((section) => {
+    section.questions.forEach((question) => {
+      responses[question.questionId] = {
+        questionId: question.questionId,
+        selectedOptionId: null,
+        markedForReview: false,
+        visited: false,
+        visitCount: 0,
+        timeSpentSeconds: 0,
+      };
+    });
+  });
+
+  return responses;
+}
+
+function TestScreen({ testData, onBack, onSubmitTest }) {
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [responses, setResponses] = useState(() =>
+    createInitialResponses(testData)
+  );
+
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  const [remainingSeconds, setRemainingSeconds] = useState(
+    (testData.timer?.durationMinutes || 0) * 60
+  );
+
+  const currentQuestionStartTimeRef = useRef(Date.now());
+const submittedRef = useRef(false);
+const responsesRef = useRef(responses);
+
+  const currentSection = testData.sections[currentSectionIndex];
+  const currentQuestion = currentSection.questions[currentQuestionIndex];
+ useEffect(() => {
+  responsesRef.current = responses;
+}, [responses]);
+  const totalQuestions = useMemo(() => {
+    return testData.sections.reduce(
+      (sum, section) => sum + section.questions.length,
+      0
+    );
+  }, [testData]);
+
+  const globalQuestionNumber = useMemo(() => {
+    let count = 0;
+
+    for (let i = 0; i < currentSectionIndex; i++) {
+      count += testData.sections[i].questions.length;
+    }
+
+    return count + currentQuestionIndex + 1;
+  }, [testData, currentSectionIndex, currentQuestionIndex]);
+
+  useEffect(() => {
+    markCurrentQuestionVisited();
+    currentQuestionStartTimeRef.current = Date.now();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setElapsedSeconds((prev) => prev + 1);
+
+      if (testData.timer.type === "strict") {
+        setRemainingSeconds((prev) => {
+          if (prev <= 1) {
+            clearInterval(intervalId);
+            autoSubmitTest();
+            return 0;
+          }
+
+          return prev - 1;
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function saveCurrentQuestionTime() {
+    const now = Date.now();
+    const secondsSpent = Math.max(
+      0,
+      Math.round((now - currentQuestionStartTimeRef.current) / 1000)
+    );
+
+    setResponses((prev) => {
+      const existing = prev[currentQuestion.questionId];
+
+      return {
+        ...prev,
+        [currentQuestion.questionId]: {
+          ...existing,
+          timeSpentSeconds:
+            (existing?.timeSpentSeconds || 0) + secondsSpent,
+        },
+      };
+    });
+
+    currentQuestionStartTimeRef.current = now;
+  }
+
+  function markCurrentQuestionVisited() {
+    setResponses((prev) => {
+      const existing = prev[currentQuestion.questionId];
+
+      return {
+        ...prev,
+        [currentQuestion.questionId]: {
+          ...existing,
+          visited: true,
+          visitCount: (existing?.visitCount || 0) + 1,
+        },
+      };
+    });
+  }
+
+  function moveToQuestion(sectionIndex, questionIndex) {
+    saveCurrentQuestionTime();
+
+    setCurrentSectionIndex(sectionIndex);
+    setCurrentQuestionIndex(questionIndex);
+
+    setTimeout(() => {
+      const nextQuestion = testData.sections[sectionIndex].questions[questionIndex];
+
+      setResponses((prev) => {
+        const existing = prev[nextQuestion.questionId];
+
+        return {
+          ...prev,
+          [nextQuestion.questionId]: {
+            ...existing,
+            visited: true,
+            visitCount: (existing?.visitCount || 0) + 1,
+          },
+        };
+      });
+
+      currentQuestionStartTimeRef.current = Date.now();
+    }, 0);
+  }
+
+  function handleSelectOption(optionId) {
+  setResponses((prev) => {
+    const existing = prev[currentQuestion.questionId];
+
+    const updated = {
+      ...prev,
+      [currentQuestion.questionId]: {
+        ...existing,
+        selectedOptionId: optionId,
+        visited: true,
+      },
+    };
+
+    responsesRef.current = updated;
+    return updated;
+  });
+}
+
+  function handleClearResponse() {
+  setResponses((prev) => {
+    const existing = prev[currentQuestion.questionId];
+
+    const updated = {
+      ...prev,
+      [currentQuestion.questionId]: {
+        ...existing,
+        selectedOptionId: null,
+        visited: true,
+      },
+    };
+
+    responsesRef.current = updated;
+    return updated;
+  });
+}
+
+  function handleMarkForReview() {
+  setResponses((prev) => {
+    const existing = prev[currentQuestion.questionId];
+
+    const updated = {
+      ...prev,
+      [currentQuestion.questionId]: {
+        ...existing,
+        markedForReview: !existing.markedForReview,
+        visited: true,
+      },
+    };
+
+    responsesRef.current = updated;
+    return updated;
+  });
+}
+
+  function goToNextQuestion() {
+    const isLastQuestionInSection =
+      currentQuestionIndex === currentSection.questions.length - 1;
+    const isLastSection = currentSectionIndex === testData.sections.length - 1;
+
+    if (!isLastQuestionInSection) {
+      moveToQuestion(currentSectionIndex, currentQuestionIndex + 1);
+      return;
+    }
+
+    if (!isLastSection) {
+      moveToQuestion(currentSectionIndex + 1, 0);
+    }
+  }
+
+  function goToPreviousQuestion() {
+    const isFirstQuestionInSection = currentQuestionIndex === 0;
+    const isFirstSection = currentSectionIndex === 0;
+
+    if (!isFirstQuestionInSection) {
+      moveToQuestion(currentSectionIndex, currentQuestionIndex - 1);
+      return;
+    }
+
+    if (!isFirstSection) {
+      const previousSectionIndex = currentSectionIndex - 1;
+      const previousSection = testData.sections[previousSectionIndex];
+
+      moveToQuestion(
+        previousSectionIndex,
+        previousSection.questions.length - 1
+      );
+    }
+  }
+
+  function handleJumpToQuestion(sectionIndex, questionIndex) {
+    moveToQuestion(sectionIndex, questionIndex);
+  }
+
+  function handleSectionClick(sectionIndex) {
+    moveToQuestion(sectionIndex, 0);
+  }
+
+  function buildFinalResponses() {
+  const latestResponses = responsesRef.current;
+
+  const now = Date.now();
+  const secondsSpent = Math.max(
+    0,
+    Math.round((now - currentQuestionStartTimeRef.current) / 1000)
+  );
+
+  const existing = latestResponses[currentQuestion.questionId];
+
+  return {
+    ...latestResponses,
+    [currentQuestion.questionId]: {
+      ...existing,
+      timeSpentSeconds:
+        (existing?.timeSpentSeconds || 0) + secondsSpent,
+    },
+  };
+}
+
+  function submitTest({ skipConfirm = false } = {}) {
+    if (submittedRef.current) return;
+
+    if (!skipConfirm) {
+      const confirmSubmit = window.confirm(
+        "Are you sure you want to submit the test?"
+      );
+
+      if (!confirmSubmit) return;
+    }
+
+    submittedRef.current = true;
+
+    const finalResponses = buildFinalResponses();
+
+    onSubmitTest({
+      responses: finalResponses,
+      submittedAt: new Date().toISOString(),
+      totalTimeSeconds: elapsedSeconds,
+      timerType: testData.timer.type,
+      autoSubmitted: skipConfirm,
+    });
+  }
+
+  function autoSubmitTest() {
+    submitTest({ skipConfirm: true });
+  }
+
+  const currentResponse = responses[currentQuestion.questionId];
+
+  return (
+    <div className="test-page">
+      <header className="test-header">
+        <div>
+          <h1>{testData.testName}</h1>
+          <p>{testData.exam}</p>
+        </div>
+
+        <div className="test-header-right">
+          <Timer
+            timerType={testData.timer.type}
+            elapsedSeconds={elapsedSeconds}
+            remainingSeconds={remainingSeconds}
+          />
+
+          <button className="danger" onClick={() => submitTest()}>
+            Submit Test
+          </button>
+        </div>
+      </header>
+
+      <div className="section-tabs">
+        {testData.sections.map((section, index) => (
+          <button
+            key={section.sectionId}
+            className={index === currentSectionIndex ? "active" : ""}
+            onClick={() => handleSectionClick(index)}
+          >
+            {section.sectionName}
+          </button>
+        ))}
+      </div>
+
+      <main className="test-layout">
+        <section className="question-area">
+          <QuestionView
+            question={currentQuestion}
+            questionNumber={globalQuestionNumber}
+            totalQuestions={totalQuestions}
+            selectedOptionId={currentResponse?.selectedOptionId}
+            onSelectOption={handleSelectOption}
+          />
+
+          <div className="question-tracking-row">
+            <span>Visits: {currentResponse?.visitCount || 0}</span>
+            <span>
+              Time spent: {currentResponse?.timeSpentSeconds || 0}s
+            </span>
+          </div>
+
+          <div className="action-bar">
+            <button onClick={goToPreviousQuestion}>Previous</button>
+
+            <button onClick={handleClearResponse}>Clear Response</button>
+
+            <button
+              className={currentResponse?.markedForReview ? "warning" : ""}
+              onClick={handleMarkForReview}
+            >
+              {currentResponse?.markedForReview
+                ? "Unmark Review"
+                : "Mark for Review"}
+            </button>
+
+            <button className="primary" onClick={goToNextQuestion}>
+              Save & Next
+            </button>
+          </div>
+        </section>
+
+        <QuestionPalette
+          sections={testData.sections}
+          responses={responses}
+          currentSectionIndex={currentSectionIndex}
+          currentQuestionIndex={currentQuestionIndex}
+          onJumpToQuestion={handleJumpToQuestion}
+        />
+      </main>
+
+      <div className="bottom-bar">
+        <button onClick={onBack}>Back to JSON</button>
+      </div>
+    </div>
+  );
+}
+
+export default TestScreen;

@@ -61,7 +61,38 @@ function ResultDashboard({
           {saveStatus === "saved" && `Saved successfully: ${savedFolderName}`}
           {saveStatus === "failed" && "Failed to save attempt."}
         </div>
+{submission.timerMode === "sectional" &&
+  submission.sectionTimings &&
+  Object.keys(submission.sectionTimings).length > 0 && (
+    <>
+      <h2>Section Timing</h2>
 
+      <div className="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Time Limit</th>
+              <th>Time Taken</th>
+              <th>Auto Submitted</th>
+              <th>Submitted At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.values(submission.sectionTimings).map((section) => (
+              <tr key={section.sectionId}>
+                <td>{section.sectionName}</td>
+                <td>{section.timeLimitSeconds} sec</td>
+                <td>{section.timeTakenSeconds} sec</td>
+                <td>{section.autoSubmitted ? "Yes" : "No"}</td>
+                <td>{new Date(section.submittedAt).toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  )}
         <h2>Section-wise Result</h2>
 
         <div className="table-wrapper">

@@ -38,6 +38,11 @@ const [isPaused, setIsPaused] = useState(false);
 const [pauseCount, setPauseCount] = useState(0);
 const [totalPausedSeconds, setTotalPausedSeconds] = useState(0);
 const [completedSections, setCompletedSections] = useState({});
+const [sectionRemainingSeconds, setSectionRemainingSeconds] = useState(
+  (testData.timer?.durationMinutes || 0) * 60
+);
+
+const [sectionTimings, setSectionTimings] = useState({});
 
   const currentQuestionStartTimeRef = useRef(Date.now());
 const submittedRef = useRef(false);
@@ -45,6 +50,12 @@ const responsesRef = useRef(responses);
 const initialVisitMarkedRef = useRef(false);
 const pauseStartTimeRef = useRef(null);
 const isPausedRef = useRef(false);
+const sectionStartTimeRef = useRef(Date.now());
+const sectionRemainingRef = useRef(
+  (testData.timer?.durationMinutes || 0) * 60
+);
+const sectionTimingsRef = useRef({});
+const completedSectionsRef = useRef({});
 
 const isSectionalMock =
   testData.mode === "mock" &&
@@ -56,6 +67,17 @@ const isSectionalMock =
  useEffect(() => {
   isPausedRef.current = isPaused;
 }, [isPaused]);
+useEffect(() => {
+  sectionRemainingRef.current = sectionRemainingSeconds;
+}, [sectionRemainingSeconds]);
+
+useEffect(() => {
+  sectionTimingsRef.current = sectionTimings;
+}, [sectionTimings]);
+
+useEffect(() => {
+  completedSectionsRef.current = completedSections;
+}, [completedSections]);
   const totalQuestions = useMemo(() => {
     return testData.sections.reduce(
       (sum, section) => sum + section.questions.length,
@@ -90,6 +112,19 @@ const isSectionalMock =
     }
 
     setElapsedSeconds((prev) => prev + 1);
+
+    if (isSectionalMock) {
+      setSectionRemainingSeconds((prev) => {
+        if (prev <= 1) {
+          handleSubmitSection({ autoSubmitted: true });
+          return 0;
+        }
+
+        return prev - 1;
+      });
+
+      return;
+    }
 
     if (testData.timer.type === "strict") {
       setRemainingSeconds((prev) => {
@@ -360,7 +395,92 @@ function handleResumeTest() {
   currentQuestionStartTimeRef.current = Date.now();
   setIsPaused(false);
 }
-  function submitTest({ skipConfirm = false } = {}) {
+function handleSubmitSection({ autoSubmitted = false } = {}) {
+  if (!isSectionalMock || submittedRef.current) return;
+
+  const currentSectionId = currentSection.sectionId;
+
+  if (completedSectionsRef.current[currentSectionId]) return;
+
+  saveCurrentQuestionTime();
+
+  const now = Date.now();
+  const timeLimitSeconds = (testData.timer?.durationMinutes || 0) * 60;
+  const timeTakenSeconds = Math.min(
+    timeLimitSeconds,
+    Math.max(0, Math.round((now - sectionStartTimeRef.current) / 1000))
+  );
+
+  const updatedCompletedSections = {
+    ...completedSectionsRef.current,
+    [currentSectionId]: true,
+  };
+
+  const updatedSectionTimings = {
+    ...sectionTimingsRef.current,
+    [currentSectionId]: {
+      sectionId: currentSectionId,
+      sectionName: currentSection.sectionName,
+      timeLimitSeconds,
+      timeTakenSeconds,
+      autoSubmitted,
+      submittedAt: new Date().toISOString(),
+    },
+  };
+
+  completedSectionsRef.current = updatedCompletedSections;
+  sectionTimingsRef.current = updatedSectionTimings;
+
+  setCompletedSections(updatedCompletedSections);
+  setSectionTimings(updatedSectionTimings);
+
+  const isLastSection = currentSectionIndex === testData.sections.length - 1;
+
+  if (isLastSection) {
+    submitTest({
+      skipConfirm: true,
+      forceSectionTimings: updatedSectionTimings,
+      forceAutoSubmitted: autoSubmitted,
+    });
+    return;
+  }
+
+  const nextSectionIndex = currentSectionIndex + 1;
+
+  setCurrentSectionIndex(nextSectionIndex);
+  setCurrentQuestionIndex(0);
+
+  setSectionRemainingSeconds(timeLimitSeconds);
+  sectionRemainingRef.current = timeLimitSeconds;
+  sectionStartTimeRef.current = Date.now();
+
+  setTimeout(() => {
+    const nextQuestion = testData.sections[nextSectionIndex].questions[0];
+
+    setResponses((prev) => {
+      const existing = prev[nextQuestion.questionId];
+
+      const updated = {
+        ...prev,
+        [nextQuestion.questionId]: {
+          ...existing,
+          visited: true,
+          visitCount: (existing?.visitCount || 0) + 1,
+        },
+      };
+
+      responsesRef.current = updated;
+      return updated;
+    });
+
+    currentQuestionStartTimeRef.current = Date.now();
+  }, 0);
+}
+  function submitTest({
+  skipConfirm = false,
+  forceSectionTimings = null,
+  forceAutoSubmitted = false,
+} = {}) {
     if (submittedRef.current) return;
 
     if (!skipConfirm) {
@@ -380,15 +500,17 @@ function handleResumeTest() {
   submittedAt: new Date().toISOString(),
   totalTimeSeconds: elapsedSeconds,
   timerType: testData.timer.type,
-  autoSubmitted: skipConfirm,
-  pauseCount,
-  totalPausedSeconds,
+  autoSubmitted: skipConfirm || forceAutoSubmitted,
+pauseCount,
+totalPausedSeconds,
+sectionTimings: forceSectionTimings || sectionTimingsRef.current,
+  
 });
   }
 
   function autoSubmitTest() {
-    submitTest({ skipConfirm: true });
-  }
+  submitTest({ skipConfirm: true, forceAutoSubmitted: true });
+}
 
   const currentResponse = responses[currentQuestion.questionId];
 
@@ -404,7 +526,7 @@ function handleResumeTest() {
           <Timer
   timerType={testData.timer.type}
   elapsedSeconds={elapsedSeconds}
-  remainingSeconds={remainingSeconds}
+  remainingSeconds={isSectionalMock ? sectionRemainingSeconds : remainingSeconds}
   isPaused={isPaused}
 />
 
@@ -416,9 +538,32 @@ function handleResumeTest() {
   <button onClick={handlePauseTest}>Pause</button>
 )}
 
-<button className="danger" onClick={() => submitTest()} disabled={isPaused}>
-  Submit Test
-</button>
+{isSectionalMock ? (
+  <button
+    className="danger"
+    onClick={() => {
+      const isLastSection =
+        currentSectionIndex === testData.sections.length - 1;
+
+      const confirmMessage = isLastSection
+        ? "Submit final section and finish the mock?"
+        : "Submit this section and move to next section? You cannot return later.";
+
+      if (window.confirm(confirmMessage)) {
+        handleSubmitSection({ autoSubmitted: false });
+      }
+    }}
+    disabled={isPaused}
+  >
+    {currentSectionIndex === testData.sections.length - 1
+      ? "Submit Final Section"
+      : "Submit Section"}
+  </button>
+) : (
+  <button className="danger" onClick={() => submitTest()} disabled={isPaused}>
+    Submit Test
+  </button>
+)}
         </div>
       </header>
 
@@ -454,8 +599,8 @@ function handleResumeTest() {
 </div>
 {isSectionalMock && (
   <div className="sectional-notice">
-    Sectional mode active: you can work only in the current section. Future
-    sections are locked until the current section is submitted.
+    Sectional mode active: work only in the current section. Submit the section
+    to move ahead. Completed sections are locked permanently.
   </div>
 )}
       <main className="test-layout">

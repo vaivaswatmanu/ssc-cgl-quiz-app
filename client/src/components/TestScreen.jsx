@@ -238,6 +238,12 @@ const isPausedRef = useRef(false);
       moveToQuestion(currentSectionIndex, currentQuestionIndex + 1);
       return;
     }
+    if (isSectionalMock) {
+  alert(
+    "You have reached the end of this section. Click Submit Section to move ahead."
+  );
+  return;
+}
 
     if (!isLastSection) {
       moveToQuestion(currentSectionIndex + 1, 0);

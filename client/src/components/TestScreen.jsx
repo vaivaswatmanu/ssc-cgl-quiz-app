@@ -37,6 +37,7 @@ const [remainingSeconds, setRemainingSeconds] = useState(
 const [isPaused, setIsPaused] = useState(false);
 const [pauseCount, setPauseCount] = useState(0);
 const [totalPausedSeconds, setTotalPausedSeconds] = useState(0);
+const [completedSections, setCompletedSections] = useState({});
 
   const currentQuestionStartTimeRef = useRef(Date.now());
 const submittedRef = useRef(false);
@@ -44,6 +45,11 @@ const responsesRef = useRef(responses);
 const initialVisitMarkedRef = useRef(false);
 const pauseStartTimeRef = useRef(null);
 const isPausedRef = useRef(false);
+
+const isSectionalMock =
+  testData.mode === "mock" &&
+  testData.timer?.mode === "sectional" &&
+  testData.timer?.type !== "none";
 
   const currentSection = testData.sections[currentSectionIndex];
   const currentQuestion = currentSection.questions[currentQuestionIndex];
@@ -267,10 +273,41 @@ const isPausedRef = useRef(false);
   function handleJumpToQuestion(sectionIndex, questionIndex) {
     moveToQuestion(sectionIndex, questionIndex);
   }
+function isSectionCompleted(sectionIndex) {
+  return Boolean(completedSections[testData.sections[sectionIndex].sectionId]);
+}
 
-  function handleSectionClick(sectionIndex) {
-    moveToQuestion(sectionIndex, 0);
+function canAccessSection(sectionIndex) {
+  if (!isSectionalMock) return true;
+
+  // Current active section is accessible.
+  if (sectionIndex === currentSectionIndex) return true;
+
+  // Completed sections are locked.
+  if (isSectionCompleted(sectionIndex)) return false;
+
+  // Future sections are locked.
+  return false;
+}
+
+function getSectionTabStatus(sectionIndex) {
+  if (!isSectionalMock) {
+    return sectionIndex === currentSectionIndex ? "active" : "";
   }
+
+  if (sectionIndex === currentSectionIndex) return "active";
+
+  if (isSectionCompleted(sectionIndex)) return "completed locked";
+
+  return "locked";
+}
+  function handleSectionClick(sectionIndex) {
+  if (!canAccessSection(sectionIndex)) {
+    return;
+  }
+
+  moveToQuestion(sectionIndex, 0);
+}
 
   function buildFinalResponses() {
     if (isPausedRef.current) {
@@ -386,18 +423,41 @@ function handleResumeTest() {
       </header>
 
       <div className="section-tabs">
-        {testData.sections.map((section, index) => (
-          <button
-  key={section.sectionId}
-  className={index === currentSectionIndex ? "active" : ""}
-  onClick={() => handleSectionClick(index)}
-  disabled={isPaused}
->
-            {section.sectionName}
-          </button>
-        ))}
-      </div>
+  {testData.sections.map((section, index) => {
+    const tabStatus = getSectionTabStatus(index);
+    const isLocked = isSectionalMock && !canAccessSection(index);
 
+    return (
+      <button
+        key={section.sectionId}
+        className={tabStatus}
+        onClick={() => handleSectionClick(index)}
+        disabled={isPaused || isLocked}
+        title={
+          isSectionalMock && isLocked
+            ? "This section is locked in sectional timer mode."
+            : ""
+        }
+      >
+        <span>{section.sectionName}</span>
+
+        {isSectionalMock && index === currentSectionIndex && (
+          <small>Active</small>
+        )}
+
+        {isSectionalMock && index !== currentSectionIndex && (
+          <small>{isSectionCompleted(index) ? "Completed" : "Locked"}</small>
+        )}
+      </button>
+    );
+  })}
+</div>
+{isSectionalMock && (
+  <div className="sectional-notice">
+    Sectional mode active: you can work only in the current section. Future
+    sections are locked until the current section is submitted.
+  </div>
+)}
       <main className="test-layout">
         <section className="question-area">
           <QuestionView
@@ -443,6 +503,13 @@ function handleResumeTest() {
   currentQuestionIndex={currentQuestionIndex}
   onJumpToQuestion={handleJumpToQuestion}
   disabled={isPaused}
+  lockedSectionIndexes={
+    isSectionalMock
+      ? testData.sections
+          .map((_, index) => index)
+          .filter((index) => index !== currentSectionIndex)
+      : []
+  }
 />
       </main>
 

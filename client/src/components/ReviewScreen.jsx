@@ -1,3 +1,4 @@
+import { formatSeconds } from "../utils/timeUtils";
 function getQuestionStatus(question, response) {
   const selectedOptionId = response?.selectedOptionId;
 
@@ -43,14 +44,23 @@ function ReviewScreen({ testData, submission, summary, onBackToResult, onBackToH
 
               return (
                 <div key={question.questionId} className="review-question-card">
-                  <div className="review-question-header">
-                    <h3>
-                      Q{questionIndex + 1}. {question.questionText}
-                    </h3>
-                    <span className={`review-status ${status}`}>
-                      {status.toUpperCase()}
-                    </span>
-                  </div>
+                 <div className="review-question-header">
+  <div>
+    <h3>
+      Q{questionIndex + 1}. {question.questionText}
+    </h3>
+
+    <div className="review-tracking-badges">
+      <span>Visits: {response?.visitCount || 0}</span>
+      <span>Time: {formatSeconds(response?.timeSpentSeconds || 0)}</span>
+      {response?.markedForReview && <span>Marked</span>}
+    </div>
+  </div>
+
+  <span className={`review-status ${status}`}>
+    {status.toUpperCase()}
+  </span>
+</div>
 
                   <div className="review-options">
                     {question.options.map((option) => (
@@ -78,7 +88,8 @@ function ReviewScreen({ testData, submission, summary, onBackToResult, onBackToH
   </p>
 
   <p>
-    <strong>Time Taken:</strong> {response?.timeSpentSeconds || 0} sec
+    <strong>Time Taken:</strong>{" "}
+    {formatSeconds(response?.timeSpentSeconds || 0)}
   </p>
 
   <p>

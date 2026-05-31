@@ -1172,3 +1172,37 @@ td {
   color: #6b7280;
   font-weight: 700;
 }
+.submit-type-badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.submit-type-badge.manual {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.submit-type-badge.auto {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.review-tracking-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.review-tracking-badges span {
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}

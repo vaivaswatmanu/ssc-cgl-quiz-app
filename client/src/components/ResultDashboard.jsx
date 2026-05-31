@@ -1,3 +1,4 @@
+import { formatSeconds } from "../utils/timeUtils";
 function ResultDashboard({
   testData,
   submission,
@@ -72,22 +73,40 @@ function ResultDashboard({
           <thead>
             <tr>
               <th>Section</th>
-              <th>Time Limit</th>
+              <th>Limit</th>
               <th>Time Taken</th>
-              <th>Auto Submitted</th>
+              <th>Remaining</th>
+              <th>Submit Type</th>
               <th>Submitted At</th>
             </tr>
           </thead>
           <tbody>
-            {Object.values(submission.sectionTimings).map((section) => (
-              <tr key={section.sectionId}>
-                <td>{section.sectionName}</td>
-                <td>{section.timeLimitSeconds} sec</td>
-                <td>{section.timeTakenSeconds} sec</td>
-                <td>{section.autoSubmitted ? "Yes" : "No"}</td>
-                <td>{new Date(section.submittedAt).toLocaleString()}</td>
-              </tr>
-            ))}
+            {Object.values(submission.sectionTimings).map((section) => {
+              const remainingSeconds = Math.max(
+                0,
+                (section.timeLimitSeconds || 0) -
+                  (section.timeTakenSeconds || 0)
+              );
+
+              return (
+                <tr key={section.sectionId}>
+                  <td>{section.sectionName}</td>
+                  <td>{formatSeconds(section.timeLimitSeconds)}</td>
+                  <td>{formatSeconds(section.timeTakenSeconds)}</td>
+                  <td>{formatSeconds(remainingSeconds)}</td>
+                  <td>
+                    <span
+                      className={`submit-type-badge ${
+                        section.autoSubmitted ? "auto" : "manual"
+                      }`}
+                    >
+                      {section.autoSubmitted ? "Auto" : "Manual"}
+                    </span>
+                  </td>
+                  <td>{new Date(section.submittedAt).toLocaleString()}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -134,7 +153,7 @@ function ResultDashboard({
         </div>
         <div className="section-item">
   <span>Total Time</span>
-  <strong>{submission.totalTimeSeconds || 0} seconds</strong>
+  <strong>{formatSeconds(submission.totalTimeSeconds || 0)}</strong>
 </div>
 
 <div className="section-item">

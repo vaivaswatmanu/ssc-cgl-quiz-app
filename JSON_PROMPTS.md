@@ -24,9 +24,10 @@ Schema:
   "mode": "quiz",
   "exam": "SSC CGL Tier 1",
   "timer": {
-    "type": "practice",
-    "durationMinutes": 15
-  },
+  "type": "practice",
+  "mode": "test",
+  "durationMinutes": 20
+},
   "marking": {
     "correct": 2,
     "wrong": -0.5,
@@ -61,3 +62,10 @@ Number of questions: 25
 Timer: practice, 20 minutes
 Difficulty: SSC CGL Tier 1
 Test name: Percentage Practice Quiz 01
+Timer rules:
+- timer.type can be "none", "practice", or "strict".
+- timer.mode can be "test" or "sectional".
+- For quiz mode, use timer.mode = "test".
+- For mock mode, prefer timer.mode = "sectional" only when sectional timing is required.
+- Quiz default duration = number of questions × 36 seconds, converted to minutes.
+- Mock sectional default = 15 minutes per section.

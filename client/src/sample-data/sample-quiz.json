@@ -4,9 +4,10 @@
   "mode": "quiz",
   "exam": "SSC CGL Tier 1",
   "timer": {
-    "type": "practice",
-    "durationMinutes": 10
-  },
+  "type": "practice",
+  "mode": "test",
+  "durationMinutes": 10
+},
   "marking": {
     "correct": 2,
     "wrong": -0.5,

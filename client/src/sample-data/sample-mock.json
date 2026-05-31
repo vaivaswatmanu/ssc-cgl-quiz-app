@@ -4,9 +4,10 @@
   "mode": "mock",
   "exam": "SSC CGL Tier 1",
   "timer": {
-    "type": "practice",
-    "durationMinutes": 20
-  },
+  "type": "practice",
+  "mode": "test",
+  "durationMinutes": 20
+},
   "marking": {
     "correct": 2,
     "wrong": -0.5,

@@ -40,20 +40,31 @@ export function validateTestJson(data) {
   }
 
   if (!data.timer || typeof data.timer !== "object") {
-    errors.push("Missing timer object.");
-  } else {
-    if (!["none", "practice", "strict"].includes(data.timer.type)) {
-      errors.push("timer.type must be 'none', 'practice', or 'strict'.");
-    }
+  errors.push("Missing timer object.");
+} else {
+  if (!["none", "practice", "strict"].includes(data.timer.type)) {
+    errors.push("timer.type must be 'none', 'practice', or 'strict'.");
+  }
 
-    if (data.timer.type !== "none") {
-      if (typeof data.timer.durationMinutes !== "number") {
-        errors.push("timer.durationMinutes must be a number.");
-      } else if (data.timer.durationMinutes <= 0) {
-        errors.push("timer.durationMinutes must be greater than 0.");
-      }
+  if (
+    data.timer.mode &&
+    !["test", "sectional"].includes(data.timer.mode)
+  ) {
+    errors.push("timer.mode must be either 'test' or 'sectional'.");
+  }
+
+  if (data.timer.mode === "sectional" && data.mode !== "mock") {
+    errors.push("sectional timer mode is allowed only for mock mode.");
+  }
+
+  if (data.timer.type !== "none") {
+    if (typeof data.timer.durationMinutes !== "number") {
+      errors.push("timer.durationMinutes must be a number.");
+    } else if (data.timer.durationMinutes <= 0) {
+      errors.push("timer.durationMinutes must be greater than 0.");
     }
   }
+}
 
   if (!Array.isArray(data.sections) || data.sections.length === 0) {
     errors.push("sections must be a non-empty array.");

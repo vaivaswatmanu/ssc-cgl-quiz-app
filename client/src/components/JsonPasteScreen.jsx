@@ -10,6 +10,7 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
 
   const [timerOverrideType, setTimerOverrideType] = useState("json");
   const [timerDurationMinutes, setTimerDurationMinutes] = useState(10);
+  const [timerMode, setTimerMode] = useState("test");
 
   const isQuizMode = selectedMode === "quiz";
 
@@ -29,39 +30,50 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
     setErrors([]);
     setTimerOverrideType("json");
     setTimerDurationMinutes(mode === "quiz" ? 10 : 60);
+    setTimerMode("test");
   }
 
   function applyTimerOverride(testData) {
-    if (timerOverrideType === "json") {
-      return testData;
-    }
-
-    const updatedTestData = {
+  if (timerOverrideType === "json") {
+    return {
       ...testData,
       timer: {
-        type: timerOverrideType,
-        durationMinutes:
-          timerOverrideType === "none" ? 0 : Number(timerDurationMinutes),
+        ...testData.timer,
+        mode: testData.timer?.mode || "test",
       },
     };
-
-    return updatedTestData;
   }
+
+  const updatedTestData = {
+    ...testData,
+    timer: {
+      type: timerOverrideType,
+      mode: timerOverrideType === "none" ? "test" : timerMode,
+      durationMinutes:
+        timerOverrideType === "none" ? 0 : Number(timerDurationMinutes),
+    },
+  };
+
+  return updatedTestData;
+}
 
   function validateTimerOverride() {
-    if (timerOverrideType === "json") return [];
+  if (timerOverrideType === "json") return [];
 
-    if (timerOverrideType === "none") return [];
+  if (timerOverrideType === "none") return [];
 
-    const duration = Number(timerDurationMinutes);
-
-    if (!duration || duration <= 0) {
-      return ["Timer duration must be greater than 0."];
-    }
-
-    return [];
+  if (timerMode === "sectional" && selectedMode !== "mock") {
+    return ["Sectional timer is allowed only for mock mode."];
   }
 
+  const duration = Number(timerDurationMinutes);
+
+  if (!duration || duration <= 0) {
+    return ["Timer duration must be greater than 0."];
+  }
+
+  return [];
+}
   function handleStart() {
     try {
       const parsedData = JSON.parse(jsonText);
@@ -163,27 +175,54 @@ function JsonPasteScreen({ onStartTest, onOpenHistory }) {
           </div>
 
           {timerOverrideType !== "json" && timerOverrideType !== "none" && (
-            <div>
-              <label>Duration Minutes</label>
-              <input
-                type="number"
-                min="0.1"
-                step="0.1"
-                value={timerDurationMinutes}
-                onChange={(e) => setTimerDurationMinutes(e.target.value)}
-              />
-            </div>
-          )}
+  <>
+    <div>
+      <label>Timer Scope</label>
+      <select
+        value={timerMode}
+        onChange={(e) => setTimerMode(e.target.value)}
+      >
+        <option value="test">Full test timer</option>
+        {selectedMode === "mock" && (
+          <option value="sectional">Sectional timer</option>
+        )}
+      </select>
+    </div>
+
+    <div>
+      <label>
+        {timerMode === "sectional"
+          ? "Minutes Per Section"
+          : "Duration Minutes"}
+      </label>
+      <input
+        type="number"
+        min="0.1"
+        step="0.1"
+        value={timerDurationMinutes}
+        onChange={(e) => setTimerDurationMinutes(e.target.value)}
+      />
+    </div>
+  </>
+)}
 
           <div className="timer-help">
-            {timerOverrideType === "json" &&
-              "Uses the timer settings already present inside pasted JSON."}
-            {timerOverrideType === "none" && "No timer will be shown during test."}
-            {timerOverrideType === "practice" &&
-              "Timer counts up. Good for practice and speed tracking."}
-            {timerOverrideType === "strict" &&
-              "Timer counts down and auto-submits when time ends."}
-          </div>
+  {timerOverrideType === "json" &&
+    "Uses the timer settings already present inside pasted JSON."}
+  {timerOverrideType === "none" && "No timer will be shown during test."}
+  {timerOverrideType === "practice" &&
+    timerMode === "test" &&
+    "Timer counts up for the full test. Good for practice and speed tracking."}
+  {timerOverrideType === "practice" &&
+    timerMode === "sectional" &&
+    "Sectional practice timer support will be added in the next phase."}
+  {timerOverrideType === "strict" &&
+    timerMode === "test" &&
+    "Timer counts down for the full test and auto-submits when time ends."}
+  {timerOverrideType === "strict" &&
+    timerMode === "sectional" &&
+    "Each section will get this much time. Sectional engine comes next."}
+</div>
         </div>
 
         <textarea

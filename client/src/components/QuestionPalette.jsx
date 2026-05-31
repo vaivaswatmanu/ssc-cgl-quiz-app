@@ -26,6 +26,7 @@ function QuestionPalette({
   currentSectionIndex,
   currentQuestionIndex,
   onJumpToQuestion,
+  disabled = false,
 }) {
   return (
     <aside className="palette-panel">
@@ -45,13 +46,12 @@ function QuestionPalette({
 
               return (
                 <button
-                  key={question.questionId}
-                  className={`palette-btn ${status} ${
-                    isActive ? "active" : ""
-                  }`}
-                  title={getStatusLabel(status)}
-                  onClick={() => onJumpToQuestion(sectionIndex, questionIndex)}
-                >
+  key={question.questionId}
+  className={`palette-btn ${status} ${isActive ? "active" : ""}`}
+  title={getStatusLabel(status)}
+  onClick={() => onJumpToQuestion(sectionIndex, questionIndex)}
+  disabled={disabled}
+>
                   {questionIndex + 1}
                 </button>
               );

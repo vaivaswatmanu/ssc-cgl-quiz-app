@@ -1112,3 +1112,17 @@ td {
   line-height: 1.4;
   padding-bottom: 10px;
 }
+.timer-box.paused {
+  background: #f59e0b;
+  color: #111827;
+}
+
+.paused-overlay {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  color: #92400e;
+  font-weight: 700;
+}

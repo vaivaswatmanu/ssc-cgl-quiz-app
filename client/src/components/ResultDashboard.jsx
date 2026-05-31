@@ -115,6 +115,15 @@ function ResultDashboard({
   <span>Auto Submitted</span>
   <strong>{submission.autoSubmitted ? "Yes" : "No"}</strong>
 </div>
+<div className="section-item">
+  <span>Pause Count</span>
+  <strong>{submission.pauseCount || 0}</strong>
+</div>
+
+<div className="section-item">
+  <span>Total Paused Time</span>
+  <strong>{submission.totalPausedSeconds || 0} seconds</strong>
+</div>
 
         <div className="section-item">
           <span>Test ID</span>

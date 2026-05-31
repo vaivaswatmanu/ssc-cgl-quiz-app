@@ -4,6 +4,7 @@ function QuestionView({
   totalQuestions,
   selectedOptionId,
   onSelectOption,
+  disabled = false,
 }) {
   return (
     <div className="question-card">
@@ -21,10 +22,11 @@ function QuestionView({
 
           return (
             <button
-              key={option.id}
-              className={`option-btn ${isSelected ? "selected" : ""}`}
-              onClick={() => onSelectOption(option.id)}
-            >
+  key={option.id}
+  className={`option-btn ${isSelected ? "selected" : ""}`}
+  onClick={() => onSelectOption(option.id)}
+  disabled={disabled}
+>
               <span className="option-id">{option.id}</span>
               <span>{option.text}</span>
             </button>

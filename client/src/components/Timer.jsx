@@ -12,7 +12,11 @@ function formatTime(totalSeconds) {
   return `${pad(minutes)}:${pad(seconds)}`;
 }
 
-function Timer({ timerType, elapsedSeconds, remainingSeconds }) {
+function Timer({ timerType, elapsedSeconds, remainingSeconds, isPaused }) {
+  if (isPaused) {
+    return <span className="timer-box paused">Paused</span>;
+  }
+
   if (timerType === "none") {
     return <span className="timer-box">No Timer</span>;
   }
@@ -27,11 +31,7 @@ function Timer({ timerType, elapsedSeconds, remainingSeconds }) {
     );
   }
 
-  return (
-    <span className="timer-box">
-      Time: {formatTime(elapsedSeconds)}
-    </span>
-  );
+  return <span className="timer-box">Time: {formatTime(elapsedSeconds)}</span>;
 }
 
 export default Timer;

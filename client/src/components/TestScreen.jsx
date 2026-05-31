@@ -30,20 +30,26 @@ function TestScreen({ testData, onBack, onSubmitTest }) {
   );
 
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
-  const [remainingSeconds, setRemainingSeconds] = useState(
-    (testData.timer?.durationMinutes || 0) * 60
-  );
+const [remainingSeconds, setRemainingSeconds] = useState(
+  (testData.timer?.durationMinutes || 0) * 60
+);
+
+const [isPaused, setIsPaused] = useState(false);
+const [pauseCount, setPauseCount] = useState(0);
+const [totalPausedSeconds, setTotalPausedSeconds] = useState(0);
 
   const currentQuestionStartTimeRef = useRef(Date.now());
 const submittedRef = useRef(false);
 const responsesRef = useRef(responses);
 const initialVisitMarkedRef = useRef(false);
+const pauseStartTimeRef = useRef(null);
+const isPausedRef = useRef(false);
 
   const currentSection = testData.sections[currentSectionIndex];
   const currentQuestion = currentSection.questions[currentQuestionIndex];
  useEffect(() => {
-  responsesRef.current = responses;
-}, [responses]);
+  isPausedRef.current = isPaused;
+}, [isPaused]);
   const totalQuestions = useMemo(() => {
     return testData.sections.reduce(
       (sum, section) => sum + section.questions.length,
@@ -72,27 +78,32 @@ const initialVisitMarkedRef = useRef(false);
 }, []);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setElapsedSeconds((prev) => prev + 1);
+  const intervalId = setInterval(() => {
+    if (isPausedRef.current || submittedRef.current) {
+      return;
+    }
 
-      if (testData.timer.type === "strict") {
-        setRemainingSeconds((prev) => {
-          if (prev <= 1) {
-            clearInterval(intervalId);
-            autoSubmitTest();
-            return 0;
-          }
+    setElapsedSeconds((prev) => prev + 1);
 
-          return prev - 1;
-        });
-      }
-    }, 1000);
+    if (testData.timer.type === "strict") {
+      setRemainingSeconds((prev) => {
+        if (prev <= 1) {
+          clearInterval(intervalId);
+          autoSubmitTest();
+          return 0;
+        }
 
-    return () => clearInterval(intervalId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+        return prev - 1;
+      });
+    }
+  }, 1000);
+
+  return () => clearInterval(intervalId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   function saveCurrentQuestionTime() {
+    if (isPausedRef.current) return;
   const now = Date.now();
   const secondsSpent = Math.max(
     0,
@@ -262,6 +273,9 @@ const initialVisitMarkedRef = useRef(false);
   }
 
   function buildFinalResponses() {
+    if (isPausedRef.current) {
+  return responsesRef.current;
+}
   const latestResponses = responsesRef.current;
 
   const now = Date.now();
@@ -281,7 +295,34 @@ const initialVisitMarkedRef = useRef(false);
     },
   };
 }
+function handlePauseTest() {
+  if (submittedRef.current || isPausedRef.current) return;
 
+  saveCurrentQuestionTime();
+
+  pauseStartTimeRef.current = Date.now();
+  setPauseCount((prev) => prev + 1);
+  setIsPaused(true);
+}
+
+function handleResumeTest() {
+  if (!isPausedRef.current) return;
+
+  const now = Date.now();
+
+  if (pauseStartTimeRef.current) {
+    const pausedSeconds = Math.max(
+      0,
+      Math.round((now - pauseStartTimeRef.current) / 1000)
+    );
+
+    setTotalPausedSeconds((prev) => prev + pausedSeconds);
+  }
+
+  pauseStartTimeRef.current = null;
+  currentQuestionStartTimeRef.current = Date.now();
+  setIsPaused(false);
+}
   function submitTest({ skipConfirm = false } = {}) {
     if (submittedRef.current) return;
 
@@ -298,12 +339,14 @@ const initialVisitMarkedRef = useRef(false);
     const finalResponses = buildFinalResponses();
 
     onSubmitTest({
-      responses: finalResponses,
-      submittedAt: new Date().toISOString(),
-      totalTimeSeconds: elapsedSeconds,
-      timerType: testData.timer.type,
-      autoSubmitted: skipConfirm,
-    });
+  responses: finalResponses,
+  submittedAt: new Date().toISOString(),
+  totalTimeSeconds: elapsedSeconds,
+  timerType: testData.timer.type,
+  autoSubmitted: skipConfirm,
+  pauseCount,
+  totalPausedSeconds,
+});
   }
 
   function autoSubmitTest() {
@@ -322,24 +365,34 @@ const initialVisitMarkedRef = useRef(false);
 
         <div className="test-header-right">
           <Timer
-            timerType={testData.timer.type}
-            elapsedSeconds={elapsedSeconds}
-            remainingSeconds={remainingSeconds}
-          />
+  timerType={testData.timer.type}
+  elapsedSeconds={elapsedSeconds}
+  remainingSeconds={remainingSeconds}
+  isPaused={isPaused}
+/>
 
-          <button className="danger" onClick={() => submitTest()}>
-            Submit Test
-          </button>
+{isPaused ? (
+  <button className="primary" onClick={handleResumeTest}>
+    Resume
+  </button>
+) : (
+  <button onClick={handlePauseTest}>Pause</button>
+)}
+
+<button className="danger" onClick={() => submitTest()} disabled={isPaused}>
+  Submit Test
+</button>
         </div>
       </header>
 
       <div className="section-tabs">
         {testData.sections.map((section, index) => (
           <button
-            key={section.sectionId}
-            className={index === currentSectionIndex ? "active" : ""}
-            onClick={() => handleSectionClick(index)}
-          >
+  key={section.sectionId}
+  className={index === currentSectionIndex ? "active" : ""}
+  onClick={() => handleSectionClick(index)}
+  disabled={isPaused}
+>
             {section.sectionName}
           </button>
         ))}
@@ -348,12 +401,13 @@ const initialVisitMarkedRef = useRef(false);
       <main className="test-layout">
         <section className="question-area">
           <QuestionView
-            question={currentQuestion}
-            questionNumber={globalQuestionNumber}
-            totalQuestions={totalQuestions}
-            selectedOptionId={currentResponse?.selectedOptionId}
-            onSelectOption={handleSelectOption}
-          />
+  question={currentQuestion}
+  questionNumber={globalQuestionNumber}
+  totalQuestions={totalQuestions}
+  selectedOptionId={currentResponse?.selectedOptionId}
+  onSelectOption={handleSelectOption}
+  disabled={isPaused}
+/>
 
           <div className="question-tracking-row">
             <span>Visits: {currentResponse?.visitCount || 0}</span>
@@ -363,32 +417,33 @@ const initialVisitMarkedRef = useRef(false);
           </div>
 
           <div className="action-bar">
-            <button onClick={goToPreviousQuestion}>Previous</button>
+            <button onClick={goToPreviousQuestion} disabled={isPaused}>Previous</button>
 
-            <button onClick={handleClearResponse}>Clear Response</button>
+            <button onClick={handleClearResponse} disabled={isPaused}>Clear Response</button>
 
             <button
               className={currentResponse?.markedForReview ? "warning" : ""}
-              onClick={handleMarkForReview}
+              onClick={handleMarkForReview} disabled={isPaused}
             >
               {currentResponse?.markedForReview
                 ? "Unmark Review"
                 : "Mark for Review"}
             </button>
 
-            <button className="primary" onClick={goToNextQuestion}>
+            <button className="primary" onClick={goToNextQuestion} disabled={isPaused}>
               Save & Next
             </button>
           </div>
         </section>
 
         <QuestionPalette
-          sections={testData.sections}
-          responses={responses}
-          currentSectionIndex={currentSectionIndex}
-          currentQuestionIndex={currentQuestionIndex}
-          onJumpToQuestion={handleJumpToQuestion}
-        />
+  sections={testData.sections}
+  responses={responses}
+  currentSectionIndex={currentSectionIndex}
+  currentQuestionIndex={currentQuestionIndex}
+  onJumpToQuestion={handleJumpToQuestion}
+  disabled={isPaused}
+/>
       </main>
 
       <div className="bottom-bar">

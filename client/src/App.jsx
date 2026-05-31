@@ -57,9 +57,11 @@ function handleOpenSavedAttempt({ testData, submission, summary }) {
   submittedAt: submissionData.submittedAt,
   totalTimeSeconds: submissionData.totalTimeSeconds,
   timerType: submissionData.timerType,
+  timerMode: testData.timer?.mode || "test",
   autoSubmitted: submissionData.autoSubmitted,
   pauseCount: submissionData.pauseCount || 0,
   totalPausedSeconds: submissionData.totalPausedSeconds || 0,
+  sectionTimings: submissionData.sectionTimings || {},
   responses: submissionData.responses,
 };
 

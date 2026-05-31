@@ -27,38 +27,49 @@ function QuestionPalette({
   currentQuestionIndex,
   onJumpToQuestion,
   disabled = false,
+  lockedSectionIndexes = [],
 }) {
   return (
     <aside className="palette-panel">
       <h3>Question Palette</h3>
 
-      {sections.map((section, sectionIndex) => (
-        <div className="palette-section" key={section.sectionId}>
-          <h4>{section.sectionName}</h4>
+      {sections.map((section, sectionIndex) => {
+  const isSectionLocked = lockedSectionIndexes.includes(sectionIndex);
 
-          <div className="palette-grid">
-            {section.questions.map((question, questionIndex) => {
-              const response = responses[question.questionId];
-              const status = getQuestionStatus(response);
-              const isActive =
-                currentSectionIndex === sectionIndex &&
-                currentQuestionIndex === questionIndex;
+  return (
+    <div
+      className={`palette-section ${isSectionLocked ? "locked-section" : ""}`}
+      key={section.sectionId}
+    >
+      <h4>
+        {section.sectionName}
+        {isSectionLocked && <span className="locked-label"> Locked</span>}
+      </h4>
 
-              return (
-                <button
-  key={question.questionId}
-  className={`palette-btn ${status} ${isActive ? "active" : ""}`}
-  title={getStatusLabel(status)}
-  onClick={() => onJumpToQuestion(sectionIndex, questionIndex)}
-  disabled={disabled}
->
-                  {questionIndex + 1}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+      <div className="palette-grid">
+        {section.questions.map((question, questionIndex) => {
+          const response = responses[question.questionId];
+          const status = getQuestionStatus(response);
+          const isActive =
+            currentSectionIndex === sectionIndex &&
+            currentQuestionIndex === questionIndex;
+
+          return (
+            <button
+              key={question.questionId}
+              className={`palette-btn ${status} ${isActive ? "active" : ""}`}
+              title={getStatusLabel(status)}
+              onClick={() => onJumpToQuestion(sectionIndex, questionIndex)}
+              disabled={disabled || isSectionLocked}
+            >
+              {questionIndex + 1}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+})}
 
       <div className="legend">
         <div>

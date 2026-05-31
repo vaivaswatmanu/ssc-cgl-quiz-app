@@ -37,6 +37,7 @@ function TestScreen({ testData, onBack, onSubmitTest }) {
   const currentQuestionStartTimeRef = useRef(Date.now());
 const submittedRef = useRef(false);
 const responsesRef = useRef(responses);
+const initialVisitMarkedRef = useRef(false);
 
   const currentSection = testData.sections[currentSectionIndex];
   const currentQuestion = currentSection.questions[currentQuestionIndex];
@@ -61,10 +62,14 @@ const responsesRef = useRef(responses);
   }, [testData, currentSectionIndex, currentQuestionIndex]);
 
   useEffect(() => {
+  if (!initialVisitMarkedRef.current) {
     markCurrentQuestionVisited();
     currentQuestionStartTimeRef.current = Date.now();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    initialVisitMarkedRef.current = true;
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -88,42 +93,47 @@ const responsesRef = useRef(responses);
   }, []);
 
   function saveCurrentQuestionTime() {
-    const now = Date.now();
-    const secondsSpent = Math.max(
-      0,
-      Math.round((now - currentQuestionStartTimeRef.current) / 1000)
-    );
+  const now = Date.now();
+  const secondsSpent = Math.max(
+    0,
+    Math.round((now - currentQuestionStartTimeRef.current) / 1000)
+  );
 
-    setResponses((prev) => {
-      const existing = prev[currentQuestion.questionId];
+  setResponses((prev) => {
+    const existing = prev[currentQuestion.questionId];
 
-      return {
-        ...prev,
-        [currentQuestion.questionId]: {
-          ...existing,
-          timeSpentSeconds:
-            (existing?.timeSpentSeconds || 0) + secondsSpent,
-        },
-      };
-    });
+    const updated = {
+      ...prev,
+      [currentQuestion.questionId]: {
+        ...existing,
+        timeSpentSeconds: (existing?.timeSpentSeconds || 0) + secondsSpent,
+      },
+    };
 
-    currentQuestionStartTimeRef.current = now;
-  }
+    responsesRef.current = updated;
+    return updated;
+  });
+
+  currentQuestionStartTimeRef.current = now;
+}
 
   function markCurrentQuestionVisited() {
-    setResponses((prev) => {
-      const existing = prev[currentQuestion.questionId];
+  setResponses((prev) => {
+    const existing = prev[currentQuestion.questionId];
 
-      return {
-        ...prev,
-        [currentQuestion.questionId]: {
-          ...existing,
-          visited: true,
-          visitCount: (existing?.visitCount || 0) + 1,
-        },
-      };
-    });
-  }
+    const updated = {
+      ...prev,
+      [currentQuestion.questionId]: {
+        ...existing,
+        visited: true,
+        visitCount: (existing?.visitCount || 0) + 1,
+      },
+    };
+
+    responsesRef.current = updated;
+    return updated;
+  });
+}
 
   function moveToQuestion(sectionIndex, questionIndex) {
     saveCurrentQuestionTime();
@@ -135,17 +145,20 @@ const responsesRef = useRef(responses);
       const nextQuestion = testData.sections[sectionIndex].questions[questionIndex];
 
       setResponses((prev) => {
-        const existing = prev[nextQuestion.questionId];
+  const existing = prev[nextQuestion.questionId];
 
-        return {
-          ...prev,
-          [nextQuestion.questionId]: {
-            ...existing,
-            visited: true,
-            visitCount: (existing?.visitCount || 0) + 1,
-          },
-        };
-      });
+  const updated = {
+    ...prev,
+    [nextQuestion.questionId]: {
+      ...existing,
+      visited: true,
+      visitCount: (existing?.visitCount || 0) + 1,
+    },
+  };
+
+  responsesRef.current = updated;
+  return updated;
+});
 
       currentQuestionStartTimeRef.current = Date.now();
     }, 0);

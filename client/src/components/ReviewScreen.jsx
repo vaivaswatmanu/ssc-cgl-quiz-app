@@ -64,14 +64,28 @@ function ReviewScreen({ testData, submission, summary, onBackToResult, onBackToH
                   </div>
 
                   <div className="review-meta">
-                    <p>
-                      <strong>Your Answer:</strong>{" "}
-                      {response?.selectedOptionId || "Not Attempted"}
-                    </p>
-                    <p>
-                      <strong>Correct Answer:</strong> {question.correctOptionId}
-                    </p>
-                  </div>
+  <p>
+    <strong>Your Answer:</strong>{" "}
+    {response?.selectedOptionId || "Not Attempted"}
+  </p>
+
+  <p>
+    <strong>Correct Answer:</strong> {question.correctOptionId}
+  </p>
+
+  <p>
+    <strong>Visits:</strong> {response?.visitCount || 0}
+  </p>
+
+  <p>
+    <strong>Time Taken:</strong> {response?.timeSpentSeconds || 0} sec
+  </p>
+
+  <p>
+    <strong>Marked for Review:</strong>{" "}
+    {response?.markedForReview ? "Yes" : "No"}
+  </p>
+</div>
 
                   <div className="solution-box">
                     <strong>Solution:</strong> {question.solution}

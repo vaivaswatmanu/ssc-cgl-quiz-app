@@ -1206,3 +1206,27 @@ td {
   font-size: 12px;
   font-weight: 700;
 }
+.time-badge.fast,
+.time-meta.fast {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.time-badge.moderate,
+.time-meta.moderate {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.time-badge.slow,
+.time-meta.slow {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.review-tracking-badges .time-badge {
+  font-weight: 900;
+}

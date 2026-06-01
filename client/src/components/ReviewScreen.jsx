@@ -16,8 +16,19 @@ function getOptionClass(question, option, response) {
   if (isSelected && !isCorrect) return "review-option wrong-option";
   return "review-option";
 }
+function getTimeClass(seconds) {
+  if (seconds <= 36) return "fast";
+  if (seconds <= 60) return "moderate";
+  return "slow";
+}
 
-function ReviewScreen({ testData, submission, summary, onBackToResult, onBackToHome }) {
+function ReviewScreen({
+  testData,
+  submission,
+  summary,
+  onBackToResult,
+  onBackToHome,
+}) {
   return (
     <div className="page">
       <div className="card wide-card">
@@ -44,23 +55,27 @@ function ReviewScreen({ testData, submission, summary, onBackToResult, onBackToH
 
               return (
                 <div key={question.questionId} className="review-question-card">
-                 <div className="review-question-header">
-  <div>
-    <h3>
-      Q{questionIndex + 1}. {question.questionText}
-    </h3>
+                  <div className="review-question-header">
+                    <div>
+                      <h3>
+                        Q{questionIndex + 1}. {question.questionText}
+                      </h3>
 
-    <div className="review-tracking-badges">
-      <span>Visits: {response?.visitCount || 0}</span>
-      <span>Time: {formatSeconds(response?.timeSpentSeconds || 0)}</span>
-      {response?.markedForReview && <span>Marked</span>}
-    </div>
-  </div>
+                      <div className="review-tracking-badges">
+                        <span>Visits: {response?.visitCount || 0}</span>
+                        <span
+                          className={`time-badge ${getTimeClass(response?.timeSpentSeconds || 0)}`}
+                        >
+                          Time: {formatSeconds(response?.timeSpentSeconds || 0)}
+                        </span>{" "}
+                        {response?.markedForReview && <span>Marked</span>}
+                      </div>
+                    </div>
 
-  <span className={`review-status ${status}`}>
-    {status.toUpperCase()}
-  </span>
-</div>
+                    <span className={`review-status ${status}`}>
+                      {status.toUpperCase()}
+                    </span>
+                  </div>
 
                   <div className="review-options">
                     {question.options.map((option) => (
@@ -74,29 +89,30 @@ function ReviewScreen({ testData, submission, summary, onBackToResult, onBackToH
                   </div>
 
                   <div className="review-meta">
-  <p>
-    <strong>Your Answer:</strong>{" "}
-    {response?.selectedOptionId || "Not Attempted"}
-  </p>
+                    <p>
+                      <strong>Your Answer:</strong>{" "}
+                      {response?.selectedOptionId || "Not Attempted"}
+                    </p>
 
-  <p>
-    <strong>Correct Answer:</strong> {question.correctOptionId}
-  </p>
+                    <p>
+                      <strong>Correct Answer:</strong>{" "}
+                      {question.correctOptionId}
+                    </p>
 
-  <p>
-    <strong>Visits:</strong> {response?.visitCount || 0}
-  </p>
+                    <p>
+                      <strong>Visits:</strong> {response?.visitCount || 0}
+                    </p>
 
-  <p>
-    <strong>Time Taken:</strong>{" "}
-    {formatSeconds(response?.timeSpentSeconds || 0)}
-  </p>
+                    <p className={`time-meta ${getTimeClass(response?.timeSpentSeconds || 0)}`}>
+  <strong>Time Taken:</strong>{" "}
+  {formatSeconds(response?.timeSpentSeconds || 0)}
+</p>
 
-  <p>
-    <strong>Marked for Review:</strong>{" "}
-    {response?.markedForReview ? "Yes" : "No"}
-  </p>
-</div>
+                    <p>
+                      <strong>Marked for Review:</strong>{" "}
+                      {response?.markedForReview ? "Yes" : "No"}
+                    </p>
+                  </div>
 
                   <div className="solution-box">
                     <strong>Solution:</strong> {question.solution}

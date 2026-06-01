@@ -67,19 +67,22 @@ export function calculateResult(testData, responses) {
     });
   });
 
-  return {
-    testId: testData.testId,
-    testName: testData.testName,
-    mode: testData.mode,
-    exam: testData.exam,
-    totalQuestions,
-    attempted,
-    correct,
-    wrong,
-    unattempted,
-    score,
-    accuracy:
-      attempted === 0 ? 0 : Number(((correct / attempted) * 100).toFixed(2)),
-    sectionResults,
-  };
+  const maxScore = totalQuestions * marking.correct;
+
+return {
+  testId: testData.testId,
+  testName: testData.testName,
+  mode: testData.mode,
+  exam: testData.exam,
+  totalQuestions,
+  attempted,
+  correct,
+  wrong,
+  unattempted,
+  score,
+  maxScore,
+  accuracy:
+    attempted === 0 ? 0 : Number(((correct / attempted) * 100).toFixed(2)),
+  sectionResults,
+};
 }

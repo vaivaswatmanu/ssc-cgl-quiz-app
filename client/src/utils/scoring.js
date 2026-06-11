@@ -21,12 +21,14 @@ export function calculateResult(testData, responses) {
     let sectionWrong = 0;
     let sectionUnattempted = 0;
     let sectionScore = 0;
+    let sectionTimeSpentSeconds = 0;
 
     section.questions.forEach((question) => {
       totalQuestions++;
       sectionTotal++;
 
       const response = responses[question.questionId];
+      sectionTimeSpentSeconds += response?.timeSpentSeconds || 0;
       const selectedOptionId = response?.selectedOptionId;
 
       if (!selectedOptionId) {
@@ -60,6 +62,7 @@ export function calculateResult(testData, responses) {
       wrong: sectionWrong,
       unattempted: sectionUnattempted,
       score: sectionScore,
+      timeSpentSeconds: sectionTimeSpentSeconds,
       accuracy:
         sectionAttempted === 0
           ? 0
@@ -72,6 +75,7 @@ export function calculateResult(testData, responses) {
 return {
   testId: testData.testId,
   testName: testData.testName,
+  subject: testData.subject || "general",
   mode: testData.mode,
   exam: testData.exam,
   totalQuestions,

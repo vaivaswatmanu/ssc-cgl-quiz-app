@@ -30,6 +30,7 @@ function TestScreen({ testData, onBack, onSubmitTest }) {
   );
 
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  const [currentQuestionLiveSeconds, setCurrentQuestionLiveSeconds] = useState(0);
 const [remainingSeconds, setRemainingSeconds] = useState(
   (testData.timer?.durationMinutes || 0) * 60
 );
@@ -112,7 +113,7 @@ useEffect(() => {
     }
 
     setElapsedSeconds((prev) => prev + 1);
-
+    setCurrentQuestionLiveSeconds((prev) => prev + 1);
     if (isSectionalMock) {
       setSectionRemainingSeconds((prev) => {
         if (prev <= 1) {
@@ -167,6 +168,7 @@ useEffect(() => {
   });
 
   currentQuestionStartTimeRef.current = now;
+  setCurrentQuestionLiveSeconds(0);
 }
 
   function markCurrentQuestionVisited() {
@@ -213,6 +215,7 @@ useEffect(() => {
 });
 
       currentQuestionStartTimeRef.current = Date.now();
+      setCurrentQuestionLiveSeconds(0);
     }, 0);
   }
 
@@ -399,6 +402,7 @@ function handleResumeTest() {
 
   pauseStartTimeRef.current = null;
   currentQuestionStartTimeRef.current = Date.now();
+  setCurrentQuestionLiveSeconds(0);
   setIsPaused(false);
 }
 function handleSubmitSection({ autoSubmitted = false } = {}) {
@@ -623,8 +627,8 @@ sectionTimings: forceSectionTimings || sectionTimingsRef.current,
           <div className="question-tracking-row">
             <span>Visits: {currentResponse?.visitCount || 0}</span>
             <span>
-              Time spent: {currentResponse?.timeSpentSeconds || 0}s
-            </span>
+  Time spent: {(currentResponse?.timeSpentSeconds || 0) + currentQuestionLiveSeconds}s
+</span>
           </div>
 
           <div className="action-bar">

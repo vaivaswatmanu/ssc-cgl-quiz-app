@@ -142,6 +142,7 @@ function ResultDashboard({
                 <th>Wrong</th>
                 <th>Unattempted</th>
                 <th>Score</th>
+                <th>Time Taken</th>
                 <th>Accuracy</th>
               </tr>
             </thead>
@@ -155,6 +156,7 @@ function ResultDashboard({
                   <td>{section.wrong}</td>
                   <td>{section.unattempted}</td>
                   <td>{section.score}</td>
+                  <td>{formatSeconds(section.timeSpentSeconds || 0)}</td>
                   <td>{section.accuracy}%</td>
                 </tr>
               ))}

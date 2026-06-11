@@ -53,6 +53,7 @@ function handleOpenSavedAttempt({ testData, submission, summary }) {
     const finalSubmission = {
   testId: testData.testId,
   testName: testData.testName,
+  subject: testData.subject || "general",
   mode: testData.mode,
   submittedAt: submissionData.submittedAt,
   totalTimeSeconds: submissionData.totalTimeSeconds,

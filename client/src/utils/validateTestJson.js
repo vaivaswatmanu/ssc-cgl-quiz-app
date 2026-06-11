@@ -14,6 +14,9 @@ export function validateTestJson(data) {
   if (!data.testName || typeof data.testName !== "string") {
     errors.push("Missing or invalid testName.");
   }
+  if (data.subject && typeof data.subject !== "string") {
+  errors.push("subject must be a string if provided.");
+}
 
   if (!["quiz", "mock"].includes(data.mode)) {
     errors.push("mode must be either 'quiz' or 'mock'.");

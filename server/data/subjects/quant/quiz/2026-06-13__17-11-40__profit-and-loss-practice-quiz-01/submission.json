@@ -1,0 +1,216 @@
+{
+  "testId": "profit-loss-practice-quiz-01",
+  "testName": "Profit and Loss Practice Quiz 01",
+  "subject": "quant",
+  "mode": "quiz",
+  "submittedAt": "2026-06-13T11:41:40.424Z",
+  "totalTimeSeconds": 2,
+  "timerType": "practice",
+  "timerMode": "test",
+  "autoSubmitted": false,
+  "pauseCount": 0,
+  "totalPausedSeconds": 0,
+  "sectionTimings": {},
+  "responses": {
+    "q1": {
+      "questionId": "q1",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 5
+    },
+    "q2": {
+      "questionId": "q2",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q3": {
+      "questionId": "q3",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q4": {
+      "questionId": "q4",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q5": {
+      "questionId": "q5",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q6": {
+      "questionId": "q6",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q7": {
+      "questionId": "q7",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q8": {
+      "questionId": "q8",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q9": {
+      "questionId": "q9",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q10": {
+      "questionId": "q10",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q11": {
+      "questionId": "q11",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q12": {
+      "questionId": "q12",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q13": {
+      "questionId": "q13",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q14": {
+      "questionId": "q14",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q15": {
+      "questionId": "q15",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q16": {
+      "questionId": "q16",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q17": {
+      "questionId": "q17",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q18": {
+      "questionId": "q18",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q19": {
+      "questionId": "q19",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q20": {
+      "questionId": "q20",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q21": {
+      "questionId": "q21",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q22": {
+      "questionId": "q22",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q23": {
+      "questionId": "q23",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q24": {
+      "questionId": "q24",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    },
+    "q25": {
+      "questionId": "q25",
+      "selectedOptionId": null,
+      "markedForReview": false,
+      "visited": false,
+      "visitCount": 0,
+      "timeSpentSeconds": 0
+    }
+  }
+}

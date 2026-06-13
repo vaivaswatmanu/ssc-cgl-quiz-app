@@ -1,0 +1,625 @@
+{
+  "testId": "profit-loss-practice-quiz-01",
+  "testName": "Profit and Loss Practice Quiz 01",
+  "subject": "quant",
+  "mode": "quiz",
+  "exam": "SSC CGL Tier 1",
+  "timer": {
+    "type": "practice",
+    "mode": "test",
+    "durationMinutes": 15
+  },
+  "marking": {
+    "correct": 2,
+    "wrong": -0.5,
+    "unattempted": 0
+  },
+  "sections": [
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": "An article is bought for ₹720 and sold for ₹900. Find the profit percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "20%"
+            },
+            {
+              "id": "B",
+              "text": "22.5%"
+            },
+            {
+              "id": "C",
+              "text": "25%"
+            },
+            {
+              "id": "D",
+              "text": "30%"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Profit = 900−720 = 180. Profit% = 180/720 × 100 = 25%."
+        },
+        {
+          "questionId": "q2",
+          "questionText": "An article costing ₹1250 is sold at a loss of 16%. Find the selling price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹1000"
+            },
+            {
+              "id": "B",
+              "text": "₹1025"
+            },
+            {
+              "id": "C",
+              "text": "₹1050"
+            },
+            {
+              "id": "D",
+              "text": "₹1100"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "SP = 84% of 1250 = 1250 × 84/100 = ₹1050."
+        },
+        {
+          "questionId": "q3",
+          "questionText": "An article is sold for ₹1440 at a profit of 20%. Find its cost price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹1080"
+            },
+            {
+              "id": "B",
+              "text": "₹1150"
+            },
+            {
+              "id": "C",
+              "text": "₹1200"
+            },
+            {
+              "id": "D",
+              "text": "₹1250"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "SP = 120% of CP. CP = 1440 × 100/120 = ₹1200."
+        },
+        {
+          "questionId": "q4",
+          "questionText": "An article is sold for ₹1040 at a loss of 20%. Find its cost price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹1200"
+            },
+            {
+              "id": "B",
+              "text": "₹1250"
+            },
+            {
+              "id": "C",
+              "text": "₹1300"
+            },
+            {
+              "id": "D",
+              "text": "₹1350"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "SP = 80% of CP. CP = 1040 × 100/80 = ₹1300."
+        },
+        {
+          "questionId": "q5",
+          "questionText": "The marked price of an article is ₹3600. If a discount of 12.5% is allowed, find the selling price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹3100"
+            },
+            {
+              "id": "B",
+              "text": "₹3150"
+            },
+            {
+              "id": "C",
+              "text": "₹3200"
+            },
+            {
+              "id": "D",
+              "text": "₹3250"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "12.5% = 1/8. SP = 7/8 of 3600 = ₹3150."
+        },
+        {
+          "questionId": "q6",
+          "questionText": "The marked price of an article is ₹2500. If a discount of 18% is given, find the selling price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹2000"
+            },
+            {
+              "id": "B",
+              "text": "₹2025"
+            },
+            {
+              "id": "C",
+              "text": "₹2050"
+            },
+            {
+              "id": "D",
+              "text": "₹2100"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "SP = 82% of 2500 = 2500 × 82/100 = ₹2050."
+        },
+        {
+          "questionId": "q7",
+          "questionText": "A shopkeeper wants to earn 25% profit after giving a discount of 20%. By what percentage should he mark the article above the cost price?",
+          "options": [
+            {
+              "id": "A",
+              "text": "50%"
+            },
+            {
+              "id": "B",
+              "text": "56.25%"
+            },
+            {
+              "id": "C",
+              "text": "60%"
+            },
+            {
+              "id": "D",
+              "text": "62.5%"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Required MP factor = 125/80 = 1.5625. Markup = 56.25%."
+        },
+        {
+          "questionId": "q8",
+          "questionText": "A shopkeeper wants to earn 20% profit after giving a discount of 25%. By what percentage should he mark the article above the cost price?",
+          "options": [
+            {
+              "id": "A",
+              "text": "50%"
+            },
+            {
+              "id": "B",
+              "text": "55%"
+            },
+            {
+              "id": "C",
+              "text": "60%"
+            },
+            {
+              "id": "D",
+              "text": "66.67%"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Required MP factor = 120/75 = 1.6. Markup = 60%."
+        },
+        {
+          "questionId": "q9",
+          "questionText": "An article is marked 60% above its cost price and sold at a discount of 25%. Find the profit percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "15%"
+            },
+            {
+              "id": "B",
+              "text": "18%"
+            },
+            {
+              "id": "C",
+              "text": "20%"
+            },
+            {
+              "id": "D",
+              "text": "25%"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Take CP = 100. MP = 160. SP = 75% of 160 = 120. Profit = 20%."
+        },
+        {
+          "questionId": "q10",
+          "questionText": "An article is marked 40% above its cost price and sold at a discount of 30%. Find the profit or loss percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "2% profit"
+            },
+            {
+              "id": "B",
+              "text": "2% loss"
+            },
+            {
+              "id": "C",
+              "text": "4% profit"
+            },
+            {
+              "id": "D",
+              "text": "4% loss"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Take CP = 100. MP = 140. SP = 70% of 140 = 98. Loss = 2%."
+        },
+        {
+          "questionId": "q11",
+          "questionText": "Two successive discounts of 25% and 20% are given on an article. Find the net discount percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "35%"
+            },
+            {
+              "id": "B",
+              "text": "40%"
+            },
+            {
+              "id": "C",
+              "text": "42%"
+            },
+            {
+              "id": "D",
+              "text": "45%"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Net discount = 25 + 20 − (25×20)/100 = 40%."
+        },
+        {
+          "questionId": "q12",
+          "questionText": "Two successive discounts of 10% and 15% are given on an article. Find the net discount percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "22.5%"
+            },
+            {
+              "id": "B",
+              "text": "23.5%"
+            },
+            {
+              "id": "C",
+              "text": "24%"
+            },
+            {
+              "id": "D",
+              "text": "25%"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Net discount = 10 + 15 − 1.5 = 23.5%."
+        },
+        {
+          "questionId": "q13",
+          "questionText": "A trader first gains 20% and then loses 10% on the new value. Find the net profit or loss percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "8% profit"
+            },
+            {
+              "id": "B",
+              "text": "8% loss"
+            },
+            {
+              "id": "C",
+              "text": "10% profit"
+            },
+            {
+              "id": "D",
+              "text": "12% profit"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Take initial value 100. After 20% gain = 120. After 10% loss = 108. Net gain = 8%."
+        },
+        {
+          "questionId": "q14",
+          "questionText": "A trader first gains 25% and then loses 20% on the new value. Find the net profit or loss percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "5% profit"
+            },
+            {
+              "id": "B",
+              "text": "5% loss"
+            },
+            {
+              "id": "C",
+              "text": "No profit, no loss"
+            },
+            {
+              "id": "D",
+              "text": "2.5% profit"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Take initial value 100. After 25% gain = 125. After 20% loss = 100. Net result = no profit, no loss."
+        },
+        {
+          "questionId": "q15",
+          "questionText": "Two articles are sold at the same selling price. One is sold at 20% profit and the other at 20% loss. Find the overall loss percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "2%"
+            },
+            {
+              "id": "B",
+              "text": "4%"
+            },
+            {
+              "id": "C",
+              "text": "5%"
+            },
+            {
+              "id": "D",
+              "text": "8%"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "For same SP and equal gain/loss x%, net loss = x²/100 = 20²/100 = 4%."
+        },
+        {
+          "questionId": "q16",
+          "questionText": "Two articles are sold at the same selling price. One is sold at 25% profit and the other at 25% loss. Find the overall loss percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "5.25%"
+            },
+            {
+              "id": "B",
+              "text": "6%"
+            },
+            {
+              "id": "C",
+              "text": "6.25%"
+            },
+            {
+              "id": "D",
+              "text": "7.5%"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "For same SP and equal gain/loss x%, net loss = x²/100 = 25²/100 = 6.25%."
+        },
+        {
+          "questionId": "q17",
+          "questionText": "Two articles are sold for ₹1200 each. One is sold at 20% profit and the other at 20% loss. Find the total loss.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹80"
+            },
+            {
+              "id": "B",
+              "text": "₹100"
+            },
+            {
+              "id": "C",
+              "text": "₹120"
+            },
+            {
+              "id": "D",
+              "text": "₹150"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "CP1 = 1200×100/120 = 1000. CP2 = 1200×100/80 = 1500. Total CP = 2500, total SP = 2400. Loss = ₹100."
+        },
+        {
+          "questionId": "q18",
+          "questionText": "Two articles are sold for ₹1800 each. One is sold at 25% profit and the other at 25% loss. Find the total loss.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹200"
+            },
+            {
+              "id": "B",
+              "text": "₹225"
+            },
+            {
+              "id": "C",
+              "text": "₹240"
+            },
+            {
+              "id": "D",
+              "text": "₹260"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "CP1 = 1800×100/125 = 1440. CP2 = 1800×100/75 = 2400. Total CP = 3840, total SP = 3600. Loss = ₹240."
+        },
+        {
+          "questionId": "q19",
+          "questionText": "A dishonest dealer uses 900 g instead of 1 kg while selling at cost price. Find his gain percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "10%"
+            },
+            {
+              "id": "B",
+              "text": "11.11%"
+            },
+            {
+              "id": "C",
+              "text": "12.5%"
+            },
+            {
+              "id": "D",
+              "text": "15%"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Gain% = (1000−900)/900 × 100 = 100/900 × 100 = 11.11%."
+        },
+        {
+          "questionId": "q20",
+          "questionText": "A dishonest dealer uses 850 g instead of 1 kg while selling at cost price. Find his gain percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "15.5%"
+            },
+            {
+              "id": "B",
+              "text": "16.67%"
+            },
+            {
+              "id": "C",
+              "text": "17.65%"
+            },
+            {
+              "id": "D",
+              "text": "20%"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Gain% = (1000−850)/850 × 100 = 150/850 × 100 = 17.65%."
+        },
+        {
+          "questionId": "q21",
+          "questionText": "A dishonest dealer uses 750 g instead of 1 kg while selling at cost price. Find his gain percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "25%"
+            },
+            {
+              "id": "B",
+              "text": "30%"
+            },
+            {
+              "id": "C",
+              "text": "33.33%"
+            },
+            {
+              "id": "D",
+              "text": "37.5%"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Gain% = (1000−750)/750 × 100 = 250/750 × 100 = 33.33%."
+        },
+        {
+          "questionId": "q22",
+          "questionText": "An article is sold at 20% profit. If both the cost price and selling price were ₹100 less, the profit would be 25%. Find the original cost price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹400"
+            },
+            {
+              "id": "B",
+              "text": "₹450"
+            },
+            {
+              "id": "C",
+              "text": "₹500"
+            },
+            {
+              "id": "D",
+              "text": "₹600"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Let CP = x, SP = 1.2x. Then 1.2x−100 = 1.25(x−100). So 1.2x−100 = 1.25x−125, hence x = ₹500."
+        },
+        {
+          "questionId": "q23",
+          "questionText": "An article is sold at 12% loss. If it had been sold for ₹96 more, there would have been a profit of 8%. Find the cost price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹420"
+            },
+            {
+              "id": "B",
+              "text": "₹450"
+            },
+            {
+              "id": "C",
+              "text": "₹480"
+            },
+            {
+              "id": "D",
+              "text": "₹500"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Difference between 8% profit and 12% loss = 20% of CP. So 20% of CP = 96, hence CP = ₹480."
+        },
+        {
+          "questionId": "q24",
+          "questionText": "An article is sold at 15% loss and the loss amount is ₹180. Find the selling price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹960"
+            },
+            {
+              "id": "B",
+              "text": "₹1000"
+            },
+            {
+              "id": "C",
+              "text": "₹1020"
+            },
+            {
+              "id": "D",
+              "text": "₹1080"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "15% of CP = 180, so CP = 1200. SP = 85% of 1200 = ₹1020."
+        },
+        {
+          "questionId": "q25",
+          "questionText": "A shopkeeper sold an article at 10% loss. If he had sold it for ₹150 more, he would have gained 20%. Find the cost price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹450"
+            },
+            {
+              "id": "B",
+              "text": "₹500"
+            },
+            {
+              "id": "C",
+              "text": "₹550"
+            },
+            {
+              "id": "D",
+              "text": "₹600"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Difference between 20% profit and 10% loss = 30% of CP. So 30% of CP = 150, hence CP = ₹500."
+        }
+      ]
+    }
+  ]
+}

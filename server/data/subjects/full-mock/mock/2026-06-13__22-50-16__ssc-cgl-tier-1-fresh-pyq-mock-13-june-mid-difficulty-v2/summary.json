@@ -1,0 +1,65 @@
+{
+  "testId": "ssc-cgl-tier1-fresh-pyq-mock-2026-06-13-v2",
+  "testName": "SSC CGL Tier 1 Fresh PYQ Mock - 13 June Mid Difficulty V2",
+  "subject": "full-mock",
+  "mode": "mock",
+  "exam": "SSC CGL Tier 1",
+  "totalQuestions": 100,
+  "attempted": 88,
+  "correct": 71,
+  "wrong": 17,
+  "unattempted": 12,
+  "score": 133.5,
+  "maxScore": 200,
+  "accuracy": 80.68,
+  "sectionResults": [
+    {
+      "sectionId": "reasoning",
+      "sectionName": "Reasoning",
+      "totalQuestions": 25,
+      "attempted": 24,
+      "correct": 20,
+      "wrong": 4,
+      "unattempted": 1,
+      "score": 38,
+      "timeSpentSeconds": 753,
+      "accuracy": 83.33
+    },
+    {
+      "sectionId": "ga",
+      "sectionName": "General Awareness",
+      "totalQuestions": 25,
+      "attempted": 18,
+      "correct": 14,
+      "wrong": 4,
+      "unattempted": 7,
+      "score": 26,
+      "timeSpentSeconds": 610,
+      "accuracy": 77.78
+    },
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "totalQuestions": 25,
+      "attempted": 23,
+      "correct": 19,
+      "wrong": 4,
+      "unattempted": 2,
+      "score": 36,
+      "timeSpentSeconds": 851,
+      "accuracy": 82.61
+    },
+    {
+      "sectionId": "english",
+      "sectionName": "English Comprehension",
+      "totalQuestions": 25,
+      "attempted": 23,
+      "correct": 18,
+      "wrong": 5,
+      "unattempted": 2,
+      "score": 33.5,
+      "timeSpentSeconds": 478,
+      "accuracy": 78.26
+    }
+  ]
+}

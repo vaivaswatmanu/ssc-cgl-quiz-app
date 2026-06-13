@@ -1,0 +1,29 @@
+{
+  "testId": "mixture-alligation-practice-quiz-01",
+  "testName": "Mixture and Alligation Practice Quiz 01",
+  "subject": "quant",
+  "mode": "quiz",
+  "exam": "SSC CGL Tier 1",
+  "totalQuestions": 25,
+  "attempted": 25,
+  "correct": 24,
+  "wrong": 1,
+  "unattempted": 0,
+  "score": 47.5,
+  "maxScore": 50,
+  "accuracy": 96,
+  "sectionResults": [
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "totalQuestions": 25,
+      "attempted": 25,
+      "correct": 24,
+      "wrong": 1,
+      "unattempted": 0,
+      "score": 47.5,
+      "timeSpentSeconds": 760,
+      "accuracy": 96
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "testId": "quant-mixed-retention-quiz-01",
+  "testName": "Quant Mixed Retention Quiz 01",
+  "subject": "quant",
+  "mode": "quiz",
+  "exam": "SSC CGL Tier 1",
+  "totalQuestions": 60,
+  "attempted": 60,
+  "correct": 57,
+  "wrong": 3,
+  "unattempted": 0,
+  "score": 112.5,
+  "maxScore": 120,
+  "accuracy": 95,
+  "sectionResults": [
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "totalQuestions": 60,
+      "attempted": 60,
+      "correct": 57,
+      "wrong": 3,
+      "unattempted": 0,
+      "score": 112.5,
+      "timeSpentSeconds": 1167,
+      "accuracy": 95
+    }
+  ]
+}

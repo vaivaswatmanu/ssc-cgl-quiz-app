@@ -1,0 +1,216 @@
+{
+  "testId": "mixture-alligation-practice-quiz-01",
+  "testName": "Mixture and Alligation Practice Quiz 01",
+  "subject": "quant",
+  "mode": "quiz",
+  "submittedAt": "2026-06-13T12:14:30.387Z",
+  "totalTimeSeconds": 761,
+  "timerType": "practice",
+  "timerMode": "test",
+  "autoSubmitted": false,
+  "pauseCount": 7,
+  "totalPausedSeconds": 819,
+  "sectionTimings": {},
+  "responses": {
+    "q1": {
+      "questionId": "q1",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 9
+    },
+    "q2": {
+      "questionId": "q2",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 6
+    },
+    "q3": {
+      "questionId": "q3",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 26
+    },
+    "q4": {
+      "questionId": "q4",
+      "selectedOptionId": "B",
+      "markedForReview": true,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 26
+    },
+    "q5": {
+      "questionId": "q5",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 16
+    },
+    "q6": {
+      "questionId": "q6",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 13
+    },
+    "q7": {
+      "questionId": "q7",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 29
+    },
+    "q8": {
+      "questionId": "q8",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 56
+    },
+    "q9": {
+      "questionId": "q9",
+      "selectedOptionId": "A",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 47
+    },
+    "q10": {
+      "questionId": "q10",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 26
+    },
+    "q11": {
+      "questionId": "q11",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 58
+    },
+    "q12": {
+      "questionId": "q12",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 58
+    },
+    "q13": {
+      "questionId": "q13",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 22
+    },
+    "q14": {
+      "questionId": "q14",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 13
+    },
+    "q15": {
+      "questionId": "q15",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 16
+    },
+    "q16": {
+      "questionId": "q16",
+      "selectedOptionId": "A",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 14
+    },
+    "q17": {
+      "questionId": "q17",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 41
+    },
+    "q18": {
+      "questionId": "q18",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 44
+    },
+    "q19": {
+      "questionId": "q19",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 32
+    },
+    "q20": {
+      "questionId": "q20",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 33
+    },
+    "q21": {
+      "questionId": "q21",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 3,
+      "timeSpentSeconds": 42
+    },
+    "q22": {
+      "questionId": "q22",
+      "selectedOptionId": "D",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 4,
+      "timeSpentSeconds": 28
+    },
+    "q23": {
+      "questionId": "q23",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 2,
+      "timeSpentSeconds": 77
+    },
+    "q24": {
+      "questionId": "q24",
+      "selectedOptionId": "C",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 11
+    },
+    "q25": {
+      "questionId": "q25",
+      "selectedOptionId": "B",
+      "markedForReview": false,
+      "visited": true,
+      "visitCount": 1,
+      "timeSpentSeconds": 17
+    }
+  }
+}

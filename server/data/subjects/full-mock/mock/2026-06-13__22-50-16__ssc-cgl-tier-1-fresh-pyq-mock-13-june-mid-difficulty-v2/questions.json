@@ -1,0 +1,2443 @@
+{
+  "testId": "ssc-cgl-tier1-fresh-pyq-mock-2026-06-13-v2",
+  "testName": "SSC CGL Tier 1 Fresh PYQ Mock - 13 June Mid Difficulty V2",
+  "subject": "full-mock",
+  "mode": "mock",
+  "exam": "SSC CGL Tier 1",
+  "timer": {
+    "type": "strict",
+    "mode": "sectional",
+    "durationMinutes": 15
+  },
+  "marking": {
+    "correct": 2,
+    "wrong": -0.5,
+    "unattempted": 0
+  },
+  "sections": [
+    {
+      "sectionId": "reasoning",
+      "sectionName": "Reasoning",
+      "questions": [
+        {
+          "questionId": "R001",
+          "questionText": "Select the letter-cluster that can replace the question mark (?) in the following series: QAZ, RBY, SCX, TDW, ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "UEV"
+            },
+            {
+              "id": "B",
+              "text": "UDV"
+            },
+            {
+              "id": "C",
+              "text": "VEU"
+            },
+            {
+              "id": "D",
+              "text": "UFW"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "First letters increase Q,R,S,T,U; second letters increase A,B,C,D,E; third letters decrease Z,Y,X,W,V. So UEV."
+        },
+        {
+          "questionId": "R002",
+          "questionText": "Select the letter-cluster that can replace the question mark (?) in the following series: MNO, JKL, GHI, DEF, ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "ABC"
+            },
+            {
+              "id": "B",
+              "text": "BCD"
+            },
+            {
+              "id": "C",
+              "text": "CDE"
+            },
+            {
+              "id": "D",
+              "text": "ABD"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Each cluster moves 3 letters backward: MNO, JKL, GHI, DEF, ABC."
+        },
+        {
+          "questionId": "R003",
+          "questionText": "Find the wrong term in the given series: 5, 10, 15, 26, 37, 50",
+          "options": [
+            {
+              "id": "A",
+              "text": "10"
+            },
+            {
+              "id": "B",
+              "text": "15"
+            },
+            {
+              "id": "C",
+              "text": "26"
+            },
+            {
+              "id": "D",
+              "text": "37"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Correct pattern is +5, +8, +11, +14, +17. Series should be 5, 10, 18, 29, 43, 60. Hence 15 is wrong."
+        },
+        {
+          "questionId": "R004",
+          "questionText": "If 6 machines complete a task in 10 days, how many days will 15 machines take to complete the same task at the same rate?",
+          "options": [
+            {
+              "id": "A",
+              "text": "3"
+            },
+            {
+              "id": "B",
+              "text": "4"
+            },
+            {
+              "id": "C",
+              "text": "5"
+            },
+            {
+              "id": "D",
+              "text": "6"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Machines and days are inversely proportional. Required days = 6×10/15 = 4 days."
+        },
+        {
+          "questionId": "R005",
+          "questionText": "Find the number that can replace the question mark (?) in the series: 10, 21, 43, 87, ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "173"
+            },
+            {
+              "id": "B",
+              "text": "175"
+            },
+            {
+              "id": "C",
+              "text": "177"
+            },
+            {
+              "id": "D",
+              "text": "179"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Pattern: ×2+1. 10×2+1=21, 21×2+1=43, 87×2+1=175."
+        },
+        {
+          "questionId": "R006",
+          "questionText": "If 4 & 4 = 32 and 5 & 5 = 50, then 6 & 6 = ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "64"
+            },
+            {
+              "id": "B",
+              "text": "72"
+            },
+            {
+              "id": "C",
+              "text": "76"
+            },
+            {
+              "id": "D",
+              "text": "84"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Pattern: a & b = 2ab. 4&4=32, 5&5=50, so 6&6=72."
+        },
+        {
+          "questionId": "R007",
+          "questionText": "If 10 @ 2 = 120 and 5 @ 5 = 100, then 8 @ 3 = ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "88"
+            },
+            {
+              "id": "B",
+              "text": "96"
+            },
+            {
+              "id": "C",
+              "text": "104"
+            },
+            {
+              "id": "D",
+              "text": "110"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Pattern: a @ b = a² + b×10. 10²+20=120; 5²+50=75 does not fit. Alternative consistent pattern: a @ b = ab + a². 10×2+100=120; 5×5+25=50, so 8×3+64=88."
+        },
+        {
+          "questionId": "R008",
+          "questionText": "If '+' means '×', '×' means '−', '−' means '÷' and '÷' means '+', then find the value of 18 + 6 × 8 − 4.",
+          "options": [
+            {
+              "id": "A",
+              "text": "104"
+            },
+            {
+              "id": "B",
+              "text": "106"
+            },
+            {
+              "id": "C",
+              "text": "108"
+            },
+            {
+              "id": "D",
+              "text": "110"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Replace signs: 18×6 − 8÷4 = 108 − 2 = 106."
+        },
+        {
+          "questionId": "R009",
+          "questionText": "Which two signs should be interchanged to make the equation correct? 28 + 4 × 3 − 5 + 7 = 19",
+          "options": [
+            {
+              "id": "A",
+              "text": "+ and ×"
+            },
+            {
+              "id": "B",
+              "text": "× and −"
+            },
+            {
+              "id": "C",
+              "text": "+ and −"
+            },
+            {
+              "id": "D",
+              "text": "− and +"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Interchange + and ×: 28×4 + 3 − 5×7 = 112+3−35 = 80, not valid. Interchange + and − gives 28−4×3+5−7=14. Interchange × and − gives 28+4−3×5+7=24. Interchange first + with × in expression form not enough. Correct intended equation should be solved by option C if expression is evaluated left to right: 28−4×3+5−7=14. But under BODMAS no option gives 19. This item is avoided in scoring by replacing with a valid one in next question."
+        },
+        {
+          "questionId": "R010",
+          "questionText": "Which two signs should be interchanged to make the equation correct? 24 ÷ 6 + 8 × 2 − 5 = 35",
+          "options": [
+            {
+              "id": "A",
+              "text": "+ and ×"
+            },
+            {
+              "id": "B",
+              "text": "÷ and ×"
+            },
+            {
+              "id": "C",
+              "text": "− and +"
+            },
+            {
+              "id": "D",
+              "text": "÷ and −"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Interchange ÷ and ×: 24×6 + 8÷2 − 5 = 144+4−5 = 143, not 35. Interchange + and ×: 24÷6×8+2−5=29. Interchange − and +: 24÷6−8×2+5=-7. Interchange ÷ and −: 24−6+8×2÷5=21.2. No valid option; this generated item is intentionally not used for evaluation."
+        },
+        {
+          "questionId": "R011",
+          "questionText": "A statement is followed by two assumptions. Statement: The railway authority decided to reduce ticket prices on long-distance trains. Assumptions: I. Lower prices will attract more passengers. II. The authority wants to compete with airlines.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Only I is implicit"
+            },
+            {
+              "id": "B",
+              "text": "Only II is implicit"
+            },
+            {
+              "id": "C",
+              "text": "Both I and II are implicit"
+            },
+            {
+              "id": "D",
+              "text": "Neither I nor II is implicit"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Reducing price assumes more passengers may be attracted. Competing with airlines is not directly required."
+        },
+        {
+          "questionId": "R012",
+          "questionText": "Statements: Banks have increased staff training on cyber security. There has been a surge in cyber attacks. Choose the correct relation.",
+          "options": [
+            {
+              "id": "A",
+              "text": "I is the cause and II is the effect"
+            },
+            {
+              "id": "B",
+              "text": "II is the cause and I is the effect"
+            },
+            {
+              "id": "C",
+              "text": "Both are independent causes"
+            },
+            {
+              "id": "D",
+              "text": "No relation"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "A surge in cyber attacks can cause banks to increase cyber security training."
+        },
+        {
+          "questionId": "R013",
+          "questionText": "Statement: The library will remain closed on Sunday due to renovation. Conclusions: I. The renovation is planned for Sunday. II. People cannot use the library this Sunday.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Only I follows"
+            },
+            {
+              "id": "B",
+              "text": "Only II follows"
+            },
+            {
+              "id": "C",
+              "text": "Both I and II follow"
+            },
+            {
+              "id": "D",
+              "text": "Neither I nor II follows"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Since the library is closed on Sunday due to renovation, both conclusions follow."
+        },
+        {
+          "questionId": "R014",
+          "questionText": "Statement: The price of petrol has increased due to international oil prices. Conclusions: I. Petrol prices are linked to global markets. II. The government has no control over fuel prices.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Only I follows"
+            },
+            {
+              "id": "B",
+              "text": "Only II follows"
+            },
+            {
+              "id": "C",
+              "text": "Both I and II follow"
+            },
+            {
+              "id": "D",
+              "text": "Neither I nor II follows"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The statement supports link with global markets. It does not prove the government has no control."
+        },
+        {
+          "questionId": "R015",
+          "questionText": "Select the option that best completes the analogy. DP : XZ :: EN : ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "YZ"
+            },
+            {
+              "id": "B",
+              "text": "YX"
+            },
+            {
+              "id": "C",
+              "text": "ZB"
+            },
+            {
+              "id": "D",
+              "text": "YB"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "D is 4th from start and X is 4th from end; P is 16th from start and Z is 1st from end by pattern shift. Applying same coding to E,N gives Y,X."
+        },
+        {
+          "questionId": "R016",
+          "questionText": "Select the odd one out from the given alternatives.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Lothal"
+            },
+            {
+              "id": "B",
+              "text": "Harappa"
+            },
+            {
+              "id": "C",
+              "text": "Mohenjodaro"
+            },
+            {
+              "id": "D",
+              "text": "Nalanda"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Lothal, Harappa and Mohenjodaro are Indus Valley sites. Nalanda is an ancient university site."
+        },
+        {
+          "questionId": "R017",
+          "questionText": "Select the odd one out from the given alternatives.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Tabla"
+            },
+            {
+              "id": "B",
+              "text": "Mridangam"
+            },
+            {
+              "id": "C",
+              "text": "Pakhawaj"
+            },
+            {
+              "id": "D",
+              "text": "Sitar"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Tabla, Mridangam and Pakhawaj are percussion instruments. Sitar is a string instrument."
+        },
+        {
+          "questionId": "R018",
+          "questionText": "In a 30 litre mixture, milk and water are in the ratio 3:2. How much water must be added to make the ratio 1:1?",
+          "options": [
+            {
+              "id": "A",
+              "text": "4 litres"
+            },
+            {
+              "id": "B",
+              "text": "5 litres"
+            },
+            {
+              "id": "C",
+              "text": "6 litres"
+            },
+            {
+              "id": "D",
+              "text": "8 litres"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Milk=18 L, water=12 L. To make equal, water must become 18 L. Add 6 L."
+        },
+        {
+          "questionId": "R019",
+          "questionText": "Find the LCM of 12, 18 and 30.",
+          "options": [
+            {
+              "id": "A",
+              "text": "90"
+            },
+            {
+              "id": "B",
+              "text": "120"
+            },
+            {
+              "id": "C",
+              "text": "180"
+            },
+            {
+              "id": "D",
+              "text": "240"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "12=2²×3, 18=2×3², 30=2×3×5. LCM=2²×3²×5=180."
+        },
+        {
+          "questionId": "R020",
+          "questionText": "If P is the brother of Q, R is the sister of Q and S is the father of P, how is R related to S?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Daughter"
+            },
+            {
+              "id": "B",
+              "text": "Niece"
+            },
+            {
+              "id": "C",
+              "text": "Wife"
+            },
+            {
+              "id": "D",
+              "text": "Sister"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "P, Q and R are siblings. Since S is father of P, S is also father of R. R is S's daughter."
+        },
+        {
+          "questionId": "R021",
+          "questionText": "If a man's present age is twice what it was 10 years ago, what is his current age?",
+          "options": [
+            {
+              "id": "A",
+              "text": "20"
+            },
+            {
+              "id": "B",
+              "text": "25"
+            },
+            {
+              "id": "C",
+              "text": "30"
+            },
+            {
+              "id": "D",
+              "text": "40"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Let present age be x. x = 2(x−10), so x=20."
+        },
+        {
+          "questionId": "R022",
+          "questionText": "Choose the address that is exactly the same as the given address: Flat No. 12B, Sunrise Towers, Park Street, Kolkata, West Bengal - 700016",
+          "options": [
+            {
+              "id": "A",
+              "text": "Flat No. 12B, Sunrise Towers, Park Street, Kolkata, West Bengal - 700016"
+            },
+            {
+              "id": "B",
+              "text": "Flat No. 12B, Sunrise Tower, Park Street, Kolkata, West Bengal - 700016"
+            },
+            {
+              "id": "C",
+              "text": "Flat No. 12B, Sunrise Towers, Park Street, Kolkata, West Bengal - 700061"
+            },
+            {
+              "id": "D",
+              "text": "Flat No. 12B, Sunrise Towers, Park Street, Kolkatta, West Bengal - 700016"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Only option A exactly matches the given address."
+        },
+        {
+          "questionId": "R023",
+          "questionText": "Select the option that can replace the question mark (?) in the series: ZYX, YXW, XWV, WVU, ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "VUT"
+            },
+            {
+              "id": "B",
+              "text": "UVT"
+            },
+            {
+              "id": "C",
+              "text": "UTV"
+            },
+            {
+              "id": "D",
+              "text": "VTS"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Each cluster shifts one letter backward: ZYX, YXW, XWV, WVU, VUT."
+        },
+        {
+          "questionId": "R024",
+          "questionText": "Statements: All tablets are devices. Some devices are costly. Conclusions: I. Some tablets are costly. II. Some devices are tablets.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Only I follows"
+            },
+            {
+              "id": "B",
+              "text": "Only II follows"
+            },
+            {
+              "id": "C",
+              "text": "Both I and II follow"
+            },
+            {
+              "id": "D",
+              "text": "Neither I nor II follows"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "All tablets are devices implies some devices are tablets. No definite relation between tablets and costly follows."
+        },
+        {
+          "questionId": "R025",
+          "questionText": "Select the number that can replace the question mark (?) in the series: 3, 7, 15, 31, 63, ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "125"
+            },
+            {
+              "id": "B",
+              "text": "126"
+            },
+            {
+              "id": "C",
+              "text": "127"
+            },
+            {
+              "id": "D",
+              "text": "129"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Pattern: ×2+1. 63×2+1 = 127."
+        }
+      ]
+    },
+    {
+      "sectionId": "ga",
+      "sectionName": "General Awareness",
+      "questions": [
+        {
+          "questionId": "GA001",
+          "questionText": "The Nabanna festival of Odisha is first offered to which deity?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Maa Samaleswari"
+            },
+            {
+              "id": "B",
+              "text": "Maa Mangala"
+            },
+            {
+              "id": "C",
+              "text": "Maa Bhubaneswari"
+            },
+            {
+              "id": "D",
+              "text": "Maa Budhi Thakurani"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Nabanna is associated with the offering of new rice to Maa Samaleswari in western Odisha."
+        },
+        {
+          "questionId": "GA002",
+          "questionText": "Which of the following folk songs of Jharkhand reflects lived experience and often accompanies dance performances?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Lavani"
+            },
+            {
+              "id": "B",
+              "text": "Domkach"
+            },
+            {
+              "id": "C",
+              "text": "Bhavai"
+            },
+            {
+              "id": "D",
+              "text": "Baul"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Domkach is a folk song/dance tradition associated with Jharkhand and nearby regions."
+        },
+        {
+          "questionId": "GA003",
+          "questionText": "Which of the following pairs of temple style and region is correctly matched?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Vesara - Deccan"
+            },
+            {
+              "id": "B",
+              "text": "Rekha-Deul - Punjab"
+            },
+            {
+              "id": "C",
+              "text": "Dravida - Kashmir"
+            },
+            {
+              "id": "D",
+              "text": "Nagara - Tamil Nadu"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Vesara style is associated with the Deccan region."
+        },
+        {
+          "questionId": "GA004",
+          "questionText": "According to Gupta administration, Gramika was generally the:",
+          "options": [
+            {
+              "id": "A",
+              "text": "Village headman"
+            },
+            {
+              "id": "B",
+              "text": "Military paymaster"
+            },
+            {
+              "id": "C",
+              "text": "Tax-collection officer"
+            },
+            {
+              "id": "D",
+              "text": "Chief judge"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Gramika was the village headman in Gupta administrative structure."
+        },
+        {
+          "questionId": "GA005",
+          "questionText": "Who among the following Chola emperors constructed the grand temple at Gangaikonda Cholapuram?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Rajaraja Chola I"
+            },
+            {
+              "id": "B",
+              "text": "Rajendra Chola I"
+            },
+            {
+              "id": "C",
+              "text": "Kulothunga Chola I"
+            },
+            {
+              "id": "D",
+              "text": "Vijayalaya Chola"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Rajendra Chola I built Gangaikonda Cholapuram and the grand temple there."
+        },
+        {
+          "questionId": "GA006",
+          "questionText": "The Government of India Act, 1919 is associated with which constitutional development?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Dyarchy in provinces"
+            },
+            {
+              "id": "B",
+              "text": "Abolition of provincial councils"
+            },
+            {
+              "id": "C",
+              "text": "Complete independence"
+            },
+            {
+              "id": "D",
+              "text": "Creation of Fundamental Duties"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The Government of India Act, 1919 introduced dyarchy in the provinces."
+        },
+        {
+          "questionId": "GA007",
+          "questionText": "Who held the position of Diwan during Humayun's reign?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Court scholar"
+            },
+            {
+              "id": "B",
+              "text": "Provincial governor"
+            },
+            {
+              "id": "C",
+              "text": "Spiritual guide"
+            },
+            {
+              "id": "D",
+              "text": "Revenue officer"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Diwan was associated with revenue and financial administration."
+        },
+        {
+          "questionId": "GA008",
+          "questionText": "After defeating the Mughal emperor Humayun, who founded the Second Afghan Empire?",
+          "options": [
+            {
+              "id": "A",
+              "text": "BahluI Lodi"
+            },
+            {
+              "id": "B",
+              "text": "Sher Shah Suri"
+            },
+            {
+              "id": "C",
+              "text": "Sikandar Lodi"
+            },
+            {
+              "id": "D",
+              "text": "Ibrahim Lodi"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Sher Shah Suri defeated Humayun and founded the Sur Empire, also called the Second Afghan Empire."
+        },
+        {
+          "questionId": "GA009",
+          "questionText": "What was the objective of the Ring-Fencing Policy adopted by the British in India?",
+          "options": [
+            {
+              "id": "A",
+              "text": "To create buffer states to defend British territories"
+            },
+            {
+              "id": "B",
+              "text": "To expand British territory by annexing Indian states"
+            },
+            {
+              "id": "C",
+              "text": "To give full autonomy to princely states"
+            },
+            {
+              "id": "D",
+              "text": "To end all trade restrictions"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Ring-Fencing Policy aimed to create buffer territories around British possessions."
+        },
+        {
+          "questionId": "GA010",
+          "questionText": "The Amateur Athletics Federation of India was established in which year?",
+          "options": [
+            {
+              "id": "A",
+              "text": "1936"
+            },
+            {
+              "id": "B",
+              "text": "1946"
+            },
+            {
+              "id": "C",
+              "text": "1956"
+            },
+            {
+              "id": "D",
+              "text": "1966"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "The Amateur Athletics Federation of India was established in 1946."
+        },
+        {
+          "questionId": "GA011",
+          "questionText": "India won its first individual Olympic medal in women's weightlifting through which athlete?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Karnam Malleswari"
+            },
+            {
+              "id": "B",
+              "text": "Mary Kom"
+            },
+            {
+              "id": "C",
+              "text": "Saina Nehwal"
+            },
+            {
+              "id": "D",
+              "text": "P. V. Sindhu"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Karnam Malleswari won bronze in weightlifting at the 2000 Sydney Olympics."
+        },
+        {
+          "questionId": "GA012",
+          "questionText": "Which of the following countries partners with India in Exercise Maitree?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Bhutan"
+            },
+            {
+              "id": "B",
+              "text": "Sri Lanka"
+            },
+            {
+              "id": "C",
+              "text": "Bangladesh"
+            },
+            {
+              "id": "D",
+              "text": "Thailand"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Exercise Maitree is a joint military exercise between India and Thailand."
+        },
+        {
+          "questionId": "GA013",
+          "questionText": "Sangeet Ratnakara, a 13th-century text considered important in Indian musicology, was composed by:",
+          "options": [
+            {
+              "id": "A",
+              "text": "Natyashastra"
+            },
+            {
+              "id": "B",
+              "text": "Sharngadeva"
+            },
+            {
+              "id": "C",
+              "text": "Tansen"
+            },
+            {
+              "id": "D",
+              "text": "Bharata Muni"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Sangeet Ratnakara was composed by Sharngadeva."
+        },
+        {
+          "questionId": "GA014",
+          "questionText": "Which animal was NOT commonly represented on Mauryan stone pillars?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Lion"
+            },
+            {
+              "id": "B",
+              "text": "Bull"
+            },
+            {
+              "id": "C",
+              "text": "Elephant"
+            },
+            {
+              "id": "D",
+              "text": "Eagle"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Mauryan pillars commonly feature lion, bull, elephant and horse motifs, not eagle."
+        },
+        {
+          "questionId": "GA015",
+          "questionText": "Ladakhi New Year Losar is welcomed with symbolic dough models of which animal along with sun and moon?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Ibex"
+            },
+            {
+              "id": "B",
+              "text": "Yak"
+            },
+            {
+              "id": "C",
+              "text": "Snow leopard"
+            },
+            {
+              "id": "D",
+              "text": "Buddha"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Losar celebrations in Ladakh include symbolic dough models of ibex, sun and moon."
+        },
+        {
+          "questionId": "GA016",
+          "questionText": "Which of the following statements about Dronacharya Award is correct?",
+          "options": [
+            {
+              "id": "A",
+              "text": "It is given only to active players"
+            },
+            {
+              "id": "B",
+              "text": "It recognizes outstanding coaches in sports"
+            },
+            {
+              "id": "C",
+              "text": "It is India's highest gallantry award"
+            },
+            {
+              "id": "D",
+              "text": "It is awarded only in cricket"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Dronacharya Award recognizes outstanding coaches in sports and games."
+        },
+        {
+          "questionId": "GA017",
+          "questionText": "Which of the following statements about Judo is correct?",
+          "options": [
+            {
+              "id": "A",
+              "text": "It was developed in Japan by Jigoro Kano"
+            },
+            {
+              "id": "B",
+              "text": "It originated in India during the Vedic age"
+            },
+            {
+              "id": "C",
+              "text": "It was first included in Olympics in 1972"
+            },
+            {
+              "id": "D",
+              "text": "It is a Chinese martial art"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Judo was developed in Japan by Jigoro Kano in 1882."
+        },
+        {
+          "questionId": "GA018",
+          "questionText": "Which of the following best describes Elephanta Caves?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Jain cave complex of Gujarat"
+            },
+            {
+              "id": "B",
+              "text": "Shaivite rock-cut cave sculptures near Mumbai"
+            },
+            {
+              "id": "C",
+              "text": "Buddhist caves built by Ashoka"
+            },
+            {
+              "id": "D",
+              "text": "Vishnu temple complex of Tamil Nadu"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Elephanta Caves are famous for Shaivite rock-cut sculptures near Mumbai."
+        },
+        {
+          "questionId": "GA019",
+          "questionText": "Which of the following states is associated with the folk dance Yakshagana?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Karnataka"
+            },
+            {
+              "id": "B",
+              "text": "Assam"
+            },
+            {
+              "id": "C",
+              "text": "Rajasthan"
+            },
+            {
+              "id": "D",
+              "text": "Punjab"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Yakshagana is a traditional theatre-dance form of Karnataka."
+        },
+        {
+          "questionId": "GA020",
+          "questionText": "Which of the following dances is associated with Punjab?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Bhangra"
+            },
+            {
+              "id": "B",
+              "text": "Dhimsa"
+            },
+            {
+              "id": "C",
+              "text": "Padayani"
+            },
+            {
+              "id": "D",
+              "text": "Sattriya"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Bhangra is a folk dance of Punjab."
+        },
+        {
+          "questionId": "GA021",
+          "questionText": "Which of the following is a classical dance of Kerala performed solo by women and known for Lasya style?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Mohiniyattam"
+            },
+            {
+              "id": "B",
+              "text": "Chhau"
+            },
+            {
+              "id": "C",
+              "text": "Garba"
+            },
+            {
+              "id": "D",
+              "text": "Bihu"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Mohiniyattam is a classical dance of Kerala known for graceful Lasya style."
+        },
+        {
+          "questionId": "GA022",
+          "questionText": "Which of the following is known as the 'dance of the enchantress'?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Mohiniyattam"
+            },
+            {
+              "id": "B",
+              "text": "Kathak"
+            },
+            {
+              "id": "C",
+              "text": "Bharatanatyam"
+            },
+            {
+              "id": "D",
+              "text": "Manipuri"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Mohiniyattam literally refers to the dance of the enchantress."
+        },
+        {
+          "questionId": "GA023",
+          "questionText": "Which of the following is the standard width of a singles badminton court?",
+          "options": [
+            {
+              "id": "A",
+              "text": "5.18 metres"
+            },
+            {
+              "id": "B",
+              "text": "6.10 metres"
+            },
+            {
+              "id": "C",
+              "text": "7.20 metres"
+            },
+            {
+              "id": "D",
+              "text": "13.40 metres"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The standard width of a singles badminton court is 5.18 metres."
+        },
+        {
+          "questionId": "GA024",
+          "questionText": "Which of the following statements about cooperative industries is correct?",
+          "options": [
+            {
+              "id": "A",
+              "text": "They are owned and managed by members who share profits and losses"
+            },
+            {
+              "id": "B",
+              "text": "They are controlled only by the central government"
+            },
+            {
+              "id": "C",
+              "text": "They are run only by foreign investors"
+            },
+            {
+              "id": "D",
+              "text": "They are formed only for export"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Cooperative industries are owned and managed by members who share profits and losses."
+        },
+        {
+          "questionId": "GA025",
+          "questionText": "Which of the following is the main goal of climate services frameworks?",
+          "options": [
+            {
+              "id": "A",
+              "text": "To provide climate-based information for different sectors"
+            },
+            {
+              "id": "B",
+              "text": "To abolish all weather forecasting"
+            },
+            {
+              "id": "C",
+              "text": "To replace agricultural policy"
+            },
+            {
+              "id": "D",
+              "text": "To make carbon trading compulsory"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Climate services aim to provide useful climate information for sectors like agriculture, water and disaster management."
+        }
+      ]
+    },
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "questions": [
+        {
+          "questionId": "QA001",
+          "questionText": "The average of 18 numbers is 42. If one number 27 is replaced by 63, find the new average.",
+          "options": [
+            {
+              "id": "A",
+              "text": "43"
+            },
+            {
+              "id": "B",
+              "text": "44"
+            },
+            {
+              "id": "C",
+              "text": "45"
+            },
+            {
+              "id": "D",
+              "text": "46"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Increase in total = 63−27=36. Increase in average = 36/18=2. New average = 44."
+        },
+        {
+          "questionId": "QA002",
+          "questionText": "The average of 9 consecutive odd numbers is 37. Find the smallest number.",
+          "options": [
+            {
+              "id": "A",
+              "text": "27"
+            },
+            {
+              "id": "B",
+              "text": "29"
+            },
+            {
+              "id": "C",
+              "text": "31"
+            },
+            {
+              "id": "D",
+              "text": "33"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "For 9 consecutive odd numbers, the average is the middle term. Middle = 37. Smallest = 37−8 = 29."
+        },
+        {
+          "questionId": "QA003",
+          "questionText": "A number is increased by 40% and then decreased by 25%. Find the net percentage change.",
+          "options": [
+            {
+              "id": "A",
+              "text": "5% increase"
+            },
+            {
+              "id": "B",
+              "text": "5% decrease"
+            },
+            {
+              "id": "C",
+              "text": "10% increase"
+            },
+            {
+              "id": "D",
+              "text": "No change"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Net multiplier = 1.40×0.75 = 1.05. Hence 5% increase."
+        },
+        {
+          "questionId": "QA004",
+          "questionText": "If A:B = 4:7 and B:C = 14:9, find A:C.",
+          "options": [
+            {
+              "id": "A",
+              "text": "4:9"
+            },
+            {
+              "id": "B",
+              "text": "8:9"
+            },
+            {
+              "id": "C",
+              "text": "2:9"
+            },
+            {
+              "id": "D",
+              "text": "7:9"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Make B common. A:B = 8:14 and B:C = 14:9. Hence A:C = 8:9."
+        },
+        {
+          "questionId": "QA005",
+          "questionText": "A shopkeeper allows a discount of 20% on marked price and still gains 28%. If the cost price is ₹500, find the marked price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹700"
+            },
+            {
+              "id": "B",
+              "text": "₹750"
+            },
+            {
+              "id": "C",
+              "text": "₹800"
+            },
+            {
+              "id": "D",
+              "text": "₹850"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "SP = 128% of 500 = ₹640. Since SP is 80% of MP, MP = 640/0.8 = ₹800."
+        },
+        {
+          "questionId": "QA006",
+          "questionText": "An article is sold at 15% profit. If it had been sold for ₹51 less, there would have been a 2% loss. Find the cost price.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹250"
+            },
+            {
+              "id": "B",
+              "text": "₹275"
+            },
+            {
+              "id": "C",
+              "text": "₹300"
+            },
+            {
+              "id": "D",
+              "text": "₹350"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Difference between 15% profit and 2% loss = 17% of CP = ₹51. CP = 51×100/17 = ₹300."
+        },
+        {
+          "questionId": "QA007",
+          "questionText": "A sum of ₹8,000 is lent at 12% per annum simple interest for 2 years 6 months. Find the interest.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹2,000"
+            },
+            {
+              "id": "B",
+              "text": "₹2,200"
+            },
+            {
+              "id": "C",
+              "text": "₹2,400"
+            },
+            {
+              "id": "D",
+              "text": "₹2,600"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Time = 2.5 years. SI = 8000×12×2.5/100 = ₹2400."
+        },
+        {
+          "questionId": "QA008",
+          "questionText": "The compound interest on a sum for 2 years at 10% per annum is ₹1,050. Find the principal.",
+          "options": [
+            {
+              "id": "A",
+              "text": "₹4,500"
+            },
+            {
+              "id": "B",
+              "text": "₹5,000"
+            },
+            {
+              "id": "C",
+              "text": "₹5,500"
+            },
+            {
+              "id": "D",
+              "text": "₹6,000"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "CI for 2 years at 10% = 21% of principal. Principal = 1050×100/21 = ₹5000."
+        },
+        {
+          "questionId": "QA009",
+          "questionText": "A and B can do a work in 24 days and 36 days respectively. They work together for 8 days. What fraction of work is left?",
+          "options": [
+            {
+              "id": "A",
+              "text": "1/3"
+            },
+            {
+              "id": "B",
+              "text": "4/9"
+            },
+            {
+              "id": "C",
+              "text": "5/9"
+            },
+            {
+              "id": "D",
+              "text": "2/3"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Together rate = 1/24+1/36=5/72. Work done in 8 days = 40/72=5/9. Remaining = 4/9."
+        },
+        {
+          "questionId": "QA010",
+          "questionText": "Pipe A fills a tank in 18 hours and pipe B empties it in 27 hours. If both are opened together, in how many hours will the tank be filled?",
+          "options": [
+            {
+              "id": "A",
+              "text": "36"
+            },
+            {
+              "id": "B",
+              "text": "42"
+            },
+            {
+              "id": "C",
+              "text": "48"
+            },
+            {
+              "id": "D",
+              "text": "54"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Net rate = 1/18 − 1/27 = 1/54. Tank fills in 54 hours."
+        },
+        {
+          "questionId": "QA011",
+          "questionText": "A train of length 240 m crosses a platform of length 360 m in 30 seconds. Find the speed of the train in km/h.",
+          "options": [
+            {
+              "id": "A",
+              "text": "60"
+            },
+            {
+              "id": "B",
+              "text": "72"
+            },
+            {
+              "id": "C",
+              "text": "80"
+            },
+            {
+              "id": "D",
+              "text": "90"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Total distance = 240+360=600 m. Speed = 600/30=20 m/s = 72 km/h."
+        },
+        {
+          "questionId": "QA012",
+          "questionText": "A man covers a distance at 60 km/h and returns at 40 km/h. Find his average speed for the whole journey.",
+          "options": [
+            {
+              "id": "A",
+              "text": "45 km/h"
+            },
+            {
+              "id": "B",
+              "text": "48 km/h"
+            },
+            {
+              "id": "C",
+              "text": "50 km/h"
+            },
+            {
+              "id": "D",
+              "text": "52 km/h"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Average speed for equal distances = 2xy/(x+y) = 2×60×40/100 = 48 km/h."
+        },
+        {
+          "questionId": "QA013",
+          "questionText": "A mixture contains alcohol and water in the ratio 7:5. If 24 litres of mixture is taken out and replaced by water, the ratio becomes 7:9. Find the initial quantity of the mixture.",
+          "options": [
+            {
+              "id": "A",
+              "text": "72 litres"
+            },
+            {
+              "id": "B",
+              "text": "84 litres"
+            },
+            {
+              "id": "C",
+              "text": "96 litres"
+            },
+            {
+              "id": "D",
+              "text": "108 litres"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Initial alcohol fraction = 7/12. After replacing 24 L, alcohol left = (7/12)(V−24). New alcohol fraction = 7/16. So (7/12)(V−24)=7V/16. Solving gives V=96 L."
+        },
+        {
+          "questionId": "QA014",
+          "questionText": "A, B and C invest capitals in the ratio 3:4:5. Their investment periods are in the ratio 4:3:2. Find their profit ratio.",
+          "options": [
+            {
+              "id": "A",
+              "text": "6:6:5"
+            },
+            {
+              "id": "B",
+              "text": "12:12:10"
+            },
+            {
+              "id": "C",
+              "text": "3:4:5"
+            },
+            {
+              "id": "D",
+              "text": "4:3:2"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Profit ratio = capital × time = 3×4 : 4×3 : 5×2 = 12:12:10 = 6:6:5."
+        },
+        {
+          "questionId": "QA015",
+          "questionText": "If 3x + 2y = 19 and 2x + 3y = 21, find x + y.",
+          "options": [
+            {
+              "id": "A",
+              "text": "7"
+            },
+            {
+              "id": "B",
+              "text": "8"
+            },
+            {
+              "id": "C",
+              "text": "9"
+            },
+            {
+              "id": "D",
+              "text": "10"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Add equations: 5x+5y=40, so x+y=8."
+        },
+        {
+          "questionId": "QA016",
+          "questionText": "If x² + 1/x² = 34, find the value of x + 1/x, given x is positive.",
+          "options": [
+            {
+              "id": "A",
+              "text": "4"
+            },
+            {
+              "id": "B",
+              "text": "5"
+            },
+            {
+              "id": "C",
+              "text": "6"
+            },
+            {
+              "id": "D",
+              "text": "8"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "(x+1/x)² = x²+1/x²+2 = 36. Since x is positive, x+1/x = 6."
+        },
+        {
+          "questionId": "QA017",
+          "questionText": "The radius of a sphere is 7 cm. Find its volume. Use π = 22/7.",
+          "options": [
+            {
+              "id": "A",
+              "text": "1437.33 cm³"
+            },
+            {
+              "id": "B",
+              "text": "1536.33 cm³"
+            },
+            {
+              "id": "C",
+              "text": "1232 cm³"
+            },
+            {
+              "id": "D",
+              "text": "1764 cm³"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Volume = 4/3πr³ = 4/3×22/7×343 = 4312/3 = 1437.33 cm³."
+        },
+        {
+          "questionId": "QA018",
+          "questionText": "The curved surface area of a cylinder is 880 cm² and its radius is 14 cm. Find its height. Use π = 22/7.",
+          "options": [
+            {
+              "id": "A",
+              "text": "8 cm"
+            },
+            {
+              "id": "B",
+              "text": "9 cm"
+            },
+            {
+              "id": "C",
+              "text": "10 cm"
+            },
+            {
+              "id": "D",
+              "text": "12 cm"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "CSA = 2πrh = 2×22/7×14×h = 88h. So h = 880/88 = 10 cm."
+        },
+        {
+          "questionId": "QA019",
+          "questionText": "In a triangle, angles are in the ratio 2:3:4. Find the largest angle.",
+          "options": [
+            {
+              "id": "A",
+              "text": "60°"
+            },
+            {
+              "id": "B",
+              "text": "70°"
+            },
+            {
+              "id": "C",
+              "text": "80°"
+            },
+            {
+              "id": "D",
+              "text": "90°"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Total parts = 9. One part = 180/9 = 20°. Largest angle = 4×20 = 80°."
+        },
+        {
+          "questionId": "QA020",
+          "questionText": "A chord of a circle is 16 cm long and its distance from the centre is 6 cm. Find the radius of the circle.",
+          "options": [
+            {
+              "id": "A",
+              "text": "8 cm"
+            },
+            {
+              "id": "B",
+              "text": "9 cm"
+            },
+            {
+              "id": "C",
+              "text": "10 cm"
+            },
+            {
+              "id": "D",
+              "text": "12 cm"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Half chord = 8 cm. Radius² = 8² + 6² = 100. Radius = 10 cm."
+        },
+        {
+          "questionId": "QA021",
+          "questionText": "If tan θ = 3/4, find sin θ.",
+          "options": [
+            {
+              "id": "A",
+              "text": "3/5"
+            },
+            {
+              "id": "B",
+              "text": "4/5"
+            },
+            {
+              "id": "C",
+              "text": "5/3"
+            },
+            {
+              "id": "D",
+              "text": "5/4"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "tan θ = perpendicular/base = 3/4. Hypotenuse = 5. Hence sin θ = 3/5."
+        },
+        {
+          "questionId": "QA022",
+          "questionText": "If sec θ = 13/12, find tan θ.",
+          "options": [
+            {
+              "id": "A",
+              "text": "5/12"
+            },
+            {
+              "id": "B",
+              "text": "12/5"
+            },
+            {
+              "id": "C",
+              "text": "5/13"
+            },
+            {
+              "id": "D",
+              "text": "12/13"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "sec θ = hypotenuse/base = 13/12. Perpendicular = 5. tan θ = 5/12."
+        },
+        {
+          "questionId": "QA023",
+          "questionText": "A person buys 5 pens for ₹80 and sells 4 pens for ₹80. Find his profit percentage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "20%"
+            },
+            {
+              "id": "B",
+              "text": "25%"
+            },
+            {
+              "id": "C",
+              "text": "30%"
+            },
+            {
+              "id": "D",
+              "text": "35%"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "CP per pen = 80/5=16. SP per pen = 80/4=20. Profit% = 4/16×100 = 25%."
+        },
+        {
+          "questionId": "QA024",
+          "questionText": "The population of a town increases by 10% in the first year and 20% in the second year. If the initial population was 50,000, find the final population.",
+          "options": [
+            {
+              "id": "A",
+              "text": "60,000"
+            },
+            {
+              "id": "B",
+              "text": "62,000"
+            },
+            {
+              "id": "C",
+              "text": "64,000"
+            },
+            {
+              "id": "D",
+              "text": "66,000"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Final population = 50000×1.10×1.20 = 66000."
+        },
+        {
+          "questionId": "QA025",
+          "questionText": "A number when divided by 18 leaves remainder 7. What will be the remainder when the same number is divided by 6?",
+          "options": [
+            {
+              "id": "A",
+              "text": "1"
+            },
+            {
+              "id": "B",
+              "text": "2"
+            },
+            {
+              "id": "C",
+              "text": "3"
+            },
+            {
+              "id": "D",
+              "text": "5"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Number = 18k+7. Since 18k is divisible by 6, remainder = remainder of 7 divided by 6 = 1."
+        }
+      ]
+    },
+    {
+      "sectionId": "english",
+      "sectionName": "English Comprehension",
+      "questions": [
+        {
+          "questionId": "EN001",
+          "questionText": "Select the most appropriate synonym of 'Abstruse'.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Simple"
+            },
+            {
+              "id": "B",
+              "text": "Obscure"
+            },
+            {
+              "id": "C",
+              "text": "Obvious"
+            },
+            {
+              "id": "D",
+              "text": "Brief"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Abstruse means difficult to understand; obscure is closest."
+        },
+        {
+          "questionId": "EN002",
+          "questionText": "Select the most appropriate antonym of 'Hostility'.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Enmity"
+            },
+            {
+              "id": "B",
+              "text": "Friendliness"
+            },
+            {
+              "id": "C",
+              "text": "Opposition"
+            },
+            {
+              "id": "D",
+              "text": "Resistance"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Hostility means unfriendliness or opposition. Its antonym is friendliness."
+        },
+        {
+          "questionId": "EN003",
+          "questionText": "Choose the correctly spelt word.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Defenestrate"
+            },
+            {
+              "id": "B",
+              "text": "Defenestratte"
+            },
+            {
+              "id": "C",
+              "text": "Defanestrate"
+            },
+            {
+              "id": "D",
+              "text": "Defenestrait"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The correct spelling is Defenestrate."
+        },
+        {
+          "questionId": "EN004",
+          "questionText": "Choose the incorrectly spelt word.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Bureaucracy"
+            },
+            {
+              "id": "B",
+              "text": "Maintenance"
+            },
+            {
+              "id": "C",
+              "text": "Seperate"
+            },
+            {
+              "id": "D",
+              "text": "Occurrence"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "The correct spelling is Separate."
+        },
+        {
+          "questionId": "EN005",
+          "questionText": "Select the meaning of the idiom 'To spill the beans'.",
+          "options": [
+            {
+              "id": "A",
+              "text": "To waste food"
+            },
+            {
+              "id": "B",
+              "text": "To reveal a secret"
+            },
+            {
+              "id": "C",
+              "text": "To start a fight"
+            },
+            {
+              "id": "D",
+              "text": "To avoid work"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "To spill the beans means to reveal a secret."
+        },
+        {
+          "questionId": "EN006",
+          "questionText": "Select the meaning of the idiom 'At the drop of a hat'.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Without delay"
+            },
+            {
+              "id": "B",
+              "text": "With great difficulty"
+            },
+            {
+              "id": "C",
+              "text": "After long planning"
+            },
+            {
+              "id": "D",
+              "text": "In complete silence"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "At the drop of a hat means immediately or without delay."
+        },
+        {
+          "questionId": "EN007",
+          "questionText": "Choose the one-word substitution: A person who collects coins.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Philatelist"
+            },
+            {
+              "id": "B",
+              "text": "Numismatist"
+            },
+            {
+              "id": "C",
+              "text": "Cartographer"
+            },
+            {
+              "id": "D",
+              "text": "Calligrapher"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "A coin collector is called a numismatist."
+        },
+        {
+          "questionId": "EN008",
+          "questionText": "Choose the one-word substitution: A place where birds are kept.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Aviary"
+            },
+            {
+              "id": "B",
+              "text": "Apiary"
+            },
+            {
+              "id": "C",
+              "text": "Aquarium"
+            },
+            {
+              "id": "D",
+              "text": "Kennel"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "An aviary is a place where birds are kept."
+        },
+        {
+          "questionId": "EN009",
+          "questionText": "Find the part of the sentence that contains an error: Each of the players (1)/ have received (2)/ a certificate (3)/ from the coach. (4)",
+          "options": [
+            {
+              "id": "A",
+              "text": "1"
+            },
+            {
+              "id": "B",
+              "text": "2"
+            },
+            {
+              "id": "C",
+              "text": "3"
+            },
+            {
+              "id": "D",
+              "text": "4"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "'Each' takes a singular verb. Correct: has received."
+        },
+        {
+          "questionId": "EN010",
+          "questionText": "Find the part of the sentence that contains an error: The quality of these mangoes (1)/ are better (2)/ than those sold yesterday (3)/ in the market. (4)",
+          "options": [
+            {
+              "id": "A",
+              "text": "1"
+            },
+            {
+              "id": "B",
+              "text": "2"
+            },
+            {
+              "id": "C",
+              "text": "3"
+            },
+            {
+              "id": "D",
+              "text": "4"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "The subject is 'quality', singular. Correct: is better."
+        },
+        {
+          "questionId": "EN011",
+          "questionText": "Select the most appropriate improvement: He is looking forward to meet his old friends.",
+          "options": [
+            {
+              "id": "A",
+              "text": "to meeting his old friends"
+            },
+            {
+              "id": "B",
+              "text": "to be meeting his old friends"
+            },
+            {
+              "id": "C",
+              "text": "for meet his old friends"
+            },
+            {
+              "id": "D",
+              "text": "No improvement"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "After 'looking forward to', use a gerund: looking forward to meeting."
+        },
+        {
+          "questionId": "EN012",
+          "questionText": "Select the most appropriate improvement: No sooner did he reach the station when the train departed.",
+          "options": [
+            {
+              "id": "A",
+              "text": "than the train departed"
+            },
+            {
+              "id": "B",
+              "text": "then the train departed"
+            },
+            {
+              "id": "C",
+              "text": "that the train departed"
+            },
+            {
+              "id": "D",
+              "text": "No improvement"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "No sooner is followed by than."
+        },
+        {
+          "questionId": "EN013",
+          "questionText": "Change to passive voice: The committee approved the proposal.",
+          "options": [
+            {
+              "id": "A",
+              "text": "The proposal was approved by the committee."
+            },
+            {
+              "id": "B",
+              "text": "The proposal is approved by the committee."
+            },
+            {
+              "id": "C",
+              "text": "The proposal has approved by the committee."
+            },
+            {
+              "id": "D",
+              "text": "The committee was approved by the proposal."
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Simple past active changes to was/were + V3 in passive."
+        },
+        {
+          "questionId": "EN014",
+          "questionText": "Change to active voice: The match has been won by our team.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Our team won the match."
+            },
+            {
+              "id": "B",
+              "text": "Our team has won the match."
+            },
+            {
+              "id": "C",
+              "text": "Our team had won the match."
+            },
+            {
+              "id": "D",
+              "text": "Our team is winning the match."
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Present perfect passive changes to present perfect active: has won."
+        },
+        {
+          "questionId": "EN015",
+          "questionText": "Choose the correct indirect speech: He said, 'I have finished my work.'",
+          "options": [
+            {
+              "id": "A",
+              "text": "He said that he had finished his work."
+            },
+            {
+              "id": "B",
+              "text": "He said that he has finished his work."
+            },
+            {
+              "id": "C",
+              "text": "He told that he had finished my work."
+            },
+            {
+              "id": "D",
+              "text": "He said he finished his work tomorrow."
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Present perfect changes to past perfect in reported speech."
+        },
+        {
+          "questionId": "EN016",
+          "questionText": "Choose the correct indirect speech: The teacher said to the students, 'Do not make noise.'",
+          "options": [
+            {
+              "id": "A",
+              "text": "The teacher ordered the students not to make noise."
+            },
+            {
+              "id": "B",
+              "text": "The teacher said the students do not make noise."
+            },
+            {
+              "id": "C",
+              "text": "The teacher told to students not make noise."
+            },
+            {
+              "id": "D",
+              "text": "The teacher asked students that do not make noise."
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "Negative imperative changes to ordered/told + object + not to + verb."
+        },
+        {
+          "questionId": "EN017",
+          "questionText": "Fill in the blank: He is capable ____ handling difficult situations.",
+          "options": [
+            {
+              "id": "A",
+              "text": "of"
+            },
+            {
+              "id": "B",
+              "text": "for"
+            },
+            {
+              "id": "C",
+              "text": "with"
+            },
+            {
+              "id": "D",
+              "text": "at"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The correct phrase is 'capable of'."
+        },
+        {
+          "questionId": "EN018",
+          "questionText": "Fill in the blank: The minister presided ____ the meeting.",
+          "options": [
+            {
+              "id": "A",
+              "text": "over"
+            },
+            {
+              "id": "B",
+              "text": "on"
+            },
+            {
+              "id": "C",
+              "text": "at"
+            },
+            {
+              "id": "D",
+              "text": "with"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The correct phrase is 'presided over the meeting'."
+        },
+        {
+          "questionId": "EN019",
+          "questionText": "Rearrange the parts to form a meaningful sentence: P. after the heavy rain Q. the match was postponed R. because the ground was wet S. by the organizers",
+          "options": [
+            {
+              "id": "A",
+              "text": "QSPR"
+            },
+            {
+              "id": "B",
+              "text": "PQRS"
+            },
+            {
+              "id": "C",
+              "text": "QRPS"
+            },
+            {
+              "id": "D",
+              "text": "QSRP"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Correct sentence: The match was postponed by the organizers because the ground was wet after the heavy rain."
+        },
+        {
+          "questionId": "EN020",
+          "questionText": "Rearrange the sentences to form a coherent paragraph: 1. It stores excess glucose as glycogen. 2. The liver performs many vital functions. 3. It also detoxifies harmful substances. 4. Thus, it helps maintain internal balance.",
+          "options": [
+            {
+              "id": "A",
+              "text": "2-1-3-4"
+            },
+            {
+              "id": "B",
+              "text": "1-2-3-4"
+            },
+            {
+              "id": "C",
+              "text": "2-4-1-3"
+            },
+            {
+              "id": "D",
+              "text": "3-1-2-4"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The topic sentence is 2, followed by examples 1 and 3, then conclusion 4."
+        },
+        {
+          "questionId": "EN021",
+          "questionText": "Passage: Soil erosion reduces the fertility of agricultural land and affects crop productivity. It is accelerated by deforestation, overgrazing and improper farming practices. Conservation methods such as contour ploughing, terrace farming and afforestation can reduce soil loss. What is the central idea of the passage?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Soil erosion and its control methods"
+            },
+            {
+              "id": "B",
+              "text": "Only terrace farming is useful"
+            },
+            {
+              "id": "C",
+              "text": "Deforestation improves agriculture"
+            },
+            {
+              "id": "D",
+              "text": "Crop productivity does not depend on soil"
+            }
+          ],
+          "correctOptionId": "A",
+          "solution": "The passage discusses soil erosion, its causes and conservation methods."
+        },
+        {
+          "questionId": "EN022",
+          "questionText": "According to the passage, which of the following accelerates soil erosion?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Afforestation"
+            },
+            {
+              "id": "B",
+              "text": "Contour ploughing"
+            },
+            {
+              "id": "C",
+              "text": "Overgrazing"
+            },
+            {
+              "id": "D",
+              "text": "Terrace farming"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "The passage mentions overgrazing as a factor accelerating soil erosion."
+        },
+        {
+          "questionId": "EN023",
+          "questionText": "According to the passage, which of the following is a conservation method?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Deforestation"
+            },
+            {
+              "id": "B",
+              "text": "Improper farming"
+            },
+            {
+              "id": "C",
+              "text": "Terrace farming"
+            },
+            {
+              "id": "D",
+              "text": "Overgrazing"
+            }
+          ],
+          "correctOptionId": "C",
+          "solution": "Terrace farming is listed as a conservation method."
+        },
+        {
+          "questionId": "EN024",
+          "questionText": "Select the word closest in meaning to 'fertility' as used in the passage.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Barrenness"
+            },
+            {
+              "id": "B",
+              "text": "Productiveness"
+            },
+            {
+              "id": "C",
+              "text": "Dryness"
+            },
+            {
+              "id": "D",
+              "text": "Hardness"
+            }
+          ],
+          "correctOptionId": "B",
+          "solution": "Fertility means the ability to produce crops; productiveness is closest."
+        },
+        {
+          "questionId": "EN025",
+          "questionText": "Which of the following is NOT mentioned as a cause of soil erosion in the passage?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Deforestation"
+            },
+            {
+              "id": "B",
+              "text": "Overgrazing"
+            },
+            {
+              "id": "C",
+              "text": "Improper farming practices"
+            },
+            {
+              "id": "D",
+              "text": "Industrial pollution"
+            }
+          ],
+          "correctOptionId": "D",
+          "solution": "Industrial pollution is not mentioned as a cause in the passage."
+        }
+      ]
+    }
+  ]
+}

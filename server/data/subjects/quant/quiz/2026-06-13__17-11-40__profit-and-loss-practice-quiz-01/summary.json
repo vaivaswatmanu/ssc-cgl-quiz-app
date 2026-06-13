@@ -1,0 +1,29 @@
+{
+  "testId": "profit-loss-practice-quiz-01",
+  "testName": "Profit and Loss Practice Quiz 01",
+  "subject": "quant",
+  "mode": "quiz",
+  "exam": "SSC CGL Tier 1",
+  "totalQuestions": 25,
+  "attempted": 0,
+  "correct": 0,
+  "wrong": 0,
+  "unattempted": 25,
+  "score": 0,
+  "maxScore": 50,
+  "accuracy": 0,
+  "sectionResults": [
+    {
+      "sectionId": "quant",
+      "sectionName": "Quantitative Aptitude",
+      "totalQuestions": 25,
+      "attempted": 0,
+      "correct": 0,
+      "wrong": 0,
+      "unattempted": 25,
+      "score": 0,
+      "timeSpentSeconds": 5,
+      "accuracy": 0
+    }
+  ]
+}

@@ -405,6 +405,14 @@ function handleResumeTest() {
   setCurrentQuestionLiveSeconds(0);
   setIsPaused(false);
 }
+function getSectionQuestionTime(sectionIndex, responseMap) {
+  const section = testData.sections[sectionIndex];
+
+  return section.questions.reduce((total, question) => {
+    return total + (responseMap[question.questionId]?.timeSpentSeconds || 0);
+  }, 0);
+}
+
 function handleSubmitSection({ autoSubmitted = false } = {}) {
   if (!isSectionalMock || submittedRef.current) return;
 
@@ -412,13 +420,16 @@ function handleSubmitSection({ autoSubmitted = false } = {}) {
 
   if (completedSectionsRef.current[currentSectionId]) return;
 
-  saveCurrentQuestionTime();
+  const finalResponses = buildFinalResponses();
 
-  const now = Date.now();
+  responsesRef.current = finalResponses;
+  setResponses(finalResponses);
+
   const timeLimitSeconds = (testData.timer?.durationMinutes || 0) * 60;
-  const timeTakenSeconds = Math.min(
-    timeLimitSeconds,
-    Math.max(0, Math.round((now - sectionStartTimeRef.current) / 1000))
+
+  const timeTakenSeconds = getSectionQuestionTime(
+    currentSectionIndex,
+    finalResponses
   );
 
   const updatedCompletedSections = {
@@ -451,6 +462,7 @@ function handleSubmitSection({ autoSubmitted = false } = {}) {
       skipConfirm: true,
       forceSectionTimings: updatedSectionTimings,
       forceAutoSubmitted: autoSubmitted,
+      forceResponses: finalResponses,
     });
     return;
   }
@@ -459,8 +471,8 @@ function handleSubmitSection({ autoSubmitted = false } = {}) {
 
   setCurrentSectionIndex(nextSectionIndex);
   setCurrentQuestionIndex(0);
-
   setSectionRemainingSeconds(timeLimitSeconds);
+
   sectionRemainingRef.current = timeLimitSeconds;
   sectionStartTimeRef.current = Date.now();
 
@@ -486,11 +498,7 @@ function handleSubmitSection({ autoSubmitted = false } = {}) {
     currentQuestionStartTimeRef.current = Date.now();
   }, 0);
 }
-  function submitTest({
-  skipConfirm = false,
-  forceSectionTimings = null,
-  forceAutoSubmitted = false,
-} = {}) {
+  function submitTest({ skipConfirm = false, forceSectionTimings = null, forceAutoSubmitted = false, forceResponses = null, } = {}) {
     if (submittedRef.current) return;
 
     if (!skipConfirm) {
@@ -503,8 +511,7 @@ function handleSubmitSection({ autoSubmitted = false } = {}) {
 
     submittedRef.current = true;
 
-    const finalResponses = buildFinalResponses();
-
+    const finalResponses = forceResponses || buildFinalResponses();
     onSubmitTest({
   responses: finalResponses,
   submittedAt: new Date().toISOString(),
